@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Strict experimental Enhanced XL parser; JPEG tables reconstructed independently with Pillow.
-
-TODO(golden): only the subset emitted by rastertodeli is accepted, not arbitrary Windows jobs.
-No encoded dimensions/checksum are trusted until record fields have been validated.
-"""
+"""Strict Enhanced XL parser for the Windows L511W and CUPS subset."""
 import argparse
 import io
 from pathlib import Path
@@ -68,7 +64,6 @@ def sos_end(jpeg):
 
 def decode_band(payload, w, h, gray, quality):
     # Standard IJG tables; using a different API/implementation from the C filter.
-    # TODO(golden): compare these DQT/DHT/SOF bytes with the driver's pre-strip JPEG.
     check(payload[:2] == b"\xff\x2c", "missing modified JPEG start marker")
     tokens = [0xd7, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4, 0xd5, 0xd6]
     check(payload[-2:] == bytes([255, tokens[((h+7)//8) % 8]]), "bad JPEG row token")
@@ -77,7 +72,11 @@ def decode_band(payload, w, h, gray, quality):
     Image.new(mode, (w, h)).save(template, format="JPEG", quality=quality,
                                 subsampling=1, optimize=False, progressive=False)
     prefix = template.getvalue()
-    jpeg = prefix[:sos_end(prefix)] + payload[2:-1] + b"\xd9"
+    end = sos_end(prefix)
+    sos = prefix.rfind(b"\xff\xda", 0, end)
+    interval = (w + (7 if gray else 15)) // (8 if gray else 16)
+    jpeg = (prefix[:sos] + b"\xff\xdd\x00\x04" + interval.to_bytes(2, "big") +
+            prefix[sos:end] + payload[2:-1] + b"\xd9")
     with Image.open(io.BytesIO(jpeg)) as im:
         im.load()
         check(im.size == (w, h) and im.mode == mode, "decoded band format mismatch")
@@ -94,8 +93,8 @@ def parse_pjl(r):
     lines = pjl[9:].splitlines()
     patterns = [
         b"@PJL JOB", b"@PJL SET STRINGCODESET=UTF8", rb'@PJL SET USERNAME="[^"\x00-\x1f\x7f]*"',
-        b"@PJL SET LMULTIPAGEPRINT=OFF", b"@PJL COMMENT Deli CUPS experimental",
-        rb'@PJL LJOBINFO USERID="[^"\x00-\x1f\x7f]*" HOSTID="CUPS"',
+        b"@PJL SET LMULTIPAGEPRINT=OFF", b"@PJL COMMENT Deli L511W",
+        rb'@PJL LJOBINFO USERID="[^"\x00-\x1f\x7f]*" HOSTID="[^"\x00-\x1f\x7f]*"',
         rb'@PJL SET JOBNAME="[^"\x00-\x1f\x7f]*"', b"@PJL SET ECONOMODE=OFF",
         b"@PJL SET FIMPROVE=OFF", b"@PJL SET FGHOST=OFF", b"@PJL SET FDENSITY=OFF",
         b"@PJL SET PNPQIMPROVE=OFF", rb'@PJL SET FPRINTFILEID="DELIPRINT_[0-9a-f]{16}"',
@@ -131,16 +130,20 @@ def page_start(r, gray):
     check(r.typed(1, 0x26) == 1 and r.typed(1, 0x28) == 0, "bad simplex setup")
     media = r.typed(1, 0x27)
     check(media in (0xff, 0xdd, 0xdc, 0xf7, 0xf6), "bad media code")
-    copies = r.typed(2, 0x31)
+    copies = r.typed(2, 0xec)
     check(copies > 0, "bad page setup copy count")
-    r.expect(bytes.fromhex("c8 c0"))
-    name = r.take(r.byte()).decode("ascii")
-    check(name in ("A4", "LETTER", "A5", "R4"), "bad paper name")
-    r.expect(bytes.fromhex("f8 25"))
+    if r.data[r.pos] == 0xd5:
+        r.expect(bytes.fromhex("d5 de 6e 07 41 7f bf 2f 41 f8 2f c0 00 f8 30 43"))
+        name = "LetterCustom"
+    else:
+        r.expect(bytes.fromhex("c8 c0"))
+        name = r.take(r.byte()).decode("ascii")
+        check(name in ("A4", "LETTER", "A5", "R4"), "bad paper name")
+        r.expect(bytes.fromhex("f8 25"))
     border = name == "R4"
     check(r.typed(1, 0xed) == (1 if border else 2), "bad border selector")
     r.expect(bytes.fromhex("43 d5 00 00 80 3f 00 00 80 3f f8 2b 77 c0 01 f8 47 71 c0 01 f8 48 72"))
-    check(r.typed(1, 3) == (1 if gray else 2), "bad color selector")
+    check(r.typed(1, 3) == 2, "bad color selector")
     r.expect(b"\x6a\xd3")
     check(r.integer(2) == r.integer(2) == (0 if border else 96), "bad cursor origin")
     r.expect(bytes.fromhex("f8 2a 75"))

@@ -1,0 +1,2 @@
+offset 1112 (private 892): 02 -> 01
+offset 1142 (private 922): 01 -> 00

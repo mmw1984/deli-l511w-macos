@@ -1,0 +1,2520 @@
+{
+  "identicalOutputs": [],
+  "jobs": [
+    {
+      "filename": "C:\\work\\deliverable\\prn\\band_a4_media-light.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_band_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "color",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "band_a4_media-light"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\band_a4_media-light.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\band_a4_media-light.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 643191,
+      "sha256": "34A51E155DEA92B94BD1EBF3F3B80ECF3A07EA3E1623A4CFEC7AE2BEAFC5D9DA",
+      "normalizedSha256": "C7E4DDE107B0354A752570561ABFF031B495C72FF8BA6382EE61FBA321077CA3",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "804e8eed0f3a22794f568aa3e1b8a1051d5ae9a2f4dea03f2290383aa8f08ebc"
+      ],
+      "sourcePixelSha256": [
+        "c7338a49ae39cfebd6ce3db4d950155e9cce311906401184d52d41302b1ba494"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_band_600.png",
+          "sourceSha256": "804e8eed0f3a22794f568aa3e1b8a1051d5ae9a2f4dea03f2290383aa8f08ebc",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "1bce0c8e8c8dd1930fc63d51412ed39a7329cc1b52fe5aa136e816ed91755c3a"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\band_mono_a4_media-light.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_band_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "mono",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "band_mono_a4_media-light"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 1,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 1,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\band_mono_a4_media-light.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\band_mono_a4_media-light.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 388923,
+      "sha256": "78CA893709EE9F260242E4F0F7302643313E599F1BD5F221692811706FC0DCF2",
+      "normalizedSha256": "A80894DDD531262D0B003C254B527728031CD0BE35CE7B10B2C4CA960C1AD269",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "804e8eed0f3a22794f568aa3e1b8a1051d5ae9a2f4dea03f2290383aa8f08ebc"
+      ],
+      "sourcePixelSha256": [
+        "c7338a49ae39cfebd6ce3db4d950155e9cce311906401184d52d41302b1ba494"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_band_600.png",
+          "sourceSha256": "804e8eed0f3a22794f568aa3e1b8a1051d5ae9a2f4dea03f2290383aa8f08ebc",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "1bce0c8e8c8dd1930fc63d51412ed39a7329cc1b52fe5aa136e816ed91755c3a"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color-gray_2page_a4_media-light.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+        "C:\\work\\deliverable\\inputs\\a4_gray_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "color",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "color-gray_2page_a4_media-light"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color-gray_2page_a4_media-light.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color-gray_2page_a4_media-light.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 3993480,
+      "sha256": "B4211621B5192326BB4143C08FC34B4AFE016FD4930CEC114604E433C16EC3DD",
+      "normalizedSha256": "F82FADCF06153E846DFA605ABD8D73B917544A3470687426914537DDEC7E30D8",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+        "107938f3a4bbcdd55c0a771e72ad197296077cf77d97d2c6505e1bc54cdde0c9"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7",
+        "27c94e6ee4d9ee8f6758de4374a1a2d5dc3d3ff5a3141a6fd200b2d337d94d85"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        },
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_gray_600.png",
+          "sourceSha256": "107938f3a4bbcdd55c0a771e72ad197296077cf77d97d2c6505e1bc54cdde0c9",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "88a7cec4ec7d8335192883227d7b42922bbb3339f849818697d8df6a6d430c8b"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_a4_media-env.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "color",
+        "media": "ENV",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "color_a4_media-env"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 257,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 257,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_a4_media-env.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_a4_media-env.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 2019361,
+      "sha256": "9FBD213EDFC2DE35F1E7CFEA90A709DC088671089EA24E2503203071B84A5ACD",
+      "normalizedSha256": "63F7B5CA8A3C06CF3A3B76D9271485B88A20D3C3F60603E9A240728CC8D7EA47",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_a4_media-heavy.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "color",
+        "media": "HEAVY",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "color_a4_media-heavy"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 258,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 258,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_a4_media-heavy.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_a4_media-heavy.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 2019386,
+      "sha256": "34D56D4B9EC0F9FBD41E558107E52AAAC2EDE6650BEAF192324F8024BB7EA1E8",
+      "normalizedSha256": "41CDBA74DE51A20159AEF8D6AE3409E3D8099619B6F593F9C20CC7A58096E730",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_a4_media-light.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "color",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "color_a4_media-light"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_a4_media-light.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_a4_media-light.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 2019363,
+      "sha256": "2FB09DA7A8C6B97A43D51F38B2129815701A7689C5F0B97D3D0D9D940BFD58A6",
+      "normalizedSha256": "95F2C4E2B899F0D8E0B14499D33233579927982EB7429A330485C8169381EDEF",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_a4_media-light_quality-best.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "color",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\best.bin",
+        "job": "color_a4_media-light_quality-best"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000030000000100000003000000030000000000000000000000000000000000020003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_a4_media-light_quality-best.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_a4_media-light_quality-best.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 2019374,
+      "sha256": "69B02949842BAB654C51CB8B63A66927A3796FA7C5FDAD7B413F235AC8B3331F",
+      "normalizedSha256": "238D115E58993E4976CE12BE4D0BD22E1992AF08EF6AE8922BB6188234287C3D",
+      "pjlPrintQuality": "HIGH",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_a4_media-light_quality-draft.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "color",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\draft.bin",
+        "job": "color_a4_media-light_quality-draft"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000010000000100000003000000030000000000000000000000000000000000000003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_a4_media-light_quality-draft.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_a4_media-light_quality-draft.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 2019399,
+      "sha256": "4C9F7246D764AFA42AE9A57ACF168C3169FF7DFE45E48E3003D8DAEBEF749739",
+      "normalizedSha256": "794BE24063CF8FF9C1F2BCBA2FA6E250A767004F4B4FE0ECA94E153F89F2C65F",
+      "pjlPrintQuality": "DRAFT",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_a4_media-matte.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "color",
+        "media": "MATTE",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "color_a4_media-matte"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 260,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 260,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_a4_media-matte.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_a4_media-matte.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 2019363,
+      "sha256": "F8612A2805E8A5C1B8F5DEAE7E5788B2535EC250175C14E440BDC8D544CAD42B",
+      "normalizedSha256": "C04E64410E66D9D566CA5829A1895C6F4752D21F754C7AD164218035FB8A0A81",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_a4_media-postcard.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "color",
+        "media": "POSTCARD",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "color_a4_media-postcard"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 261,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 261,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_a4_media-postcard.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_a4_media-postcard.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 2019389,
+      "sha256": "CF6F94F8F691E629D82B05767DA8455D1573CC75E60395172C32E4F8A1971EFE",
+      "normalizedSha256": "668045ADB18438123189D652034F5B72EF04150659F9AA2EA3BD81F3C4402F4F",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_a5_media-light.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A5",
+        "color": "color",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "color_a5_media-light"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 11,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 11,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_a5_media-light.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_a5_media-light.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 3312,
+        "VERTRES": 4768,
+        "PHYSICALWIDTH": 3496,
+        "PHYSICALHEIGHT": 4960
+      },
+      "fileSize": 859438,
+      "sha256": "A385D1361295A5DF41C8FBBFBFD572F6BC2226B715588EF04F0D9B2A1E79F231",
+      "normalizedSha256": "CAE8CE7528173A5D9446298B518C53FFFE0E6A7D45E85A0A9F51A592C85B9FEC",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_lettercustom_media-light.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "LetterCustom",
+        "color": "color",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "color_lettercustom_media-light"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 256,
+        "dmPaperLength": 2794,
+        "dmPaperWidth": 2159,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894479,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 256,
+        "dmPaperLength": 2794,
+        "dmPaperWidth": 2159,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894479,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_lettercustom_media-light.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_lettercustom_media-light.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4896,
+        "VERTRES": 6400,
+        "PHYSICALWIDTH": 5100,
+        "PHYSICALHEIGHT": 6600
+      },
+      "fileSize": 1901172,
+      "sha256": "B18076A095A41C86BD46989A9DF7EBC6F70349FE4B5E0B5DFABCCD1740E03224",
+      "normalizedSha256": "B917B2CD28DFECC28A1308CA0F2787EE7CFBB6DBCDF01D6CAD662A02A7F1B365",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_letter_media-light.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "Letter",
+        "color": "color",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "color_letter_media-light"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 1,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 1,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_letter_media-light.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_letter_media-light.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4896,
+        "VERTRES": 6400,
+        "PHYSICALWIDTH": 5100,
+        "PHYSICALHEIGHT": 6600
+      },
+      "fileSize": 1901161,
+      "sha256": "664E828C601D02F1FF579BCF19EFA3528EF617AF92BA33A8D9D646188E584D32",
+      "normalizedSha256": "43DFC05908E87D4A5EF57685DE19EF6D97C61084C996252025C9D37FB8ED5DEC",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\color_mono_a4_media-light.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_color_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "mono",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "color_mono_a4_media-light"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 1,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 1,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\color_mono_a4_media-light.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\color_mono_a4_media-light.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 1713623,
+      "sha256": "FF59F907A69BE4A41D0A15BFADF39A3B96A6113638D469F4926407DD44C6A3A8",
+      "normalizedSha256": "C4A0A2A419199E044D1D356B841CE29BC8BD8438A1A76873F04C3D4F83BA92E2",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+      ],
+      "sourcePixelSha256": [
+        "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+          "sourceSha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\gray_a4_media-light.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_gray_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "color",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "gray_a4_media-light"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 2,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\gray_a4_media-light.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\gray_a4_media-light.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 1975001,
+      "sha256": "5E96304B5BEAD012F2012E603B25F78A682AFE8B9B4A77383F76B6D6357AA48C",
+      "normalizedSha256": "CBBF852B692E5757B12DCA57D07F39944D4A7C1CDE2F02DA450263F43740EE60",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "107938f3a4bbcdd55c0a771e72ad197296077cf77d97d2c6505e1bc54cdde0c9"
+      ],
+      "sourcePixelSha256": [
+        "27c94e6ee4d9ee8f6758de4374a1a2d5dc3d3ff5a3141a6fd200b2d337d94d85"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_gray_600.png",
+          "sourceSha256": "107938f3a4bbcdd55c0a771e72ad197296077cf77d97d2c6505e1bc54cdde0c9",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "88a7cec4ec7d8335192883227d7b42922bbb3339f849818697d8df6a6d430c8b"
+        }
+      ]
+    },
+    {
+      "filename": "C:\\work\\deliverable\\prn\\gray_mono_a4_media-light.prn",
+      "sourceImages": [
+        "C:\\work\\deliverable\\inputs\\a4_gray_600.png"
+      ],
+      "settings": {
+        "printer": "Deli L511W",
+        "paper": "A4",
+        "color": "mono",
+        "media": "LIGHT",
+        "qualityBlob": "C:\\work\\deliverable\\devmodes\\standard-applied.bin",
+        "job": "gray_mono_a4_media-light"
+      },
+      "requestedDevmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2970,
+        "dmPaperWidth": 2100,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 1,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "A4",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "devmode": {
+        "dmOrientation": 1,
+        "dmPaperSize": 9,
+        "dmPaperLength": 2969,
+        "dmPaperWidth": 2099,
+        "dmScale": 100,
+        "dmCopies": 1,
+        "dmDefaultSource": 15,
+        "dmPrintQuality": 600,
+        "dmColor": 1,
+        "dmDuplex": 1,
+        "dmYResolution": 600,
+        "dmTTOption": 2,
+        "dmCollate": 1,
+        "dmFields": 125894467,
+        "dmMediaType": 259,
+        "dmSize": 220,
+        "dmDriverExtra": 928,
+        "dmSpecVersion": 1025,
+        "dmDriverVersion": 1539,
+        "dmDeviceName": "Deli L511W",
+        "dmFormName": "",
+        "dmICMMethod": 1,
+        "dmICMIntent": 2,
+        "dmDitherType": 4294967295
+      },
+      "driverExtraHex": "44494E552200F0004C035400265F2C91000000000000000000000000000000000000000000000000000000000900000000000000000000000000060001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000F0000000534D544A000000001000E000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000054000000494C454401000000000000000000000000000000000000000000000000000000000000000000000000000000020000000100000003000000030000000000000000000000000000000000010003000000",
+      "devmodeBlob": "C:\\work\\deliverable\\gray_mono_a4_media-light.json.devmode.bin",
+      "ticketFile": "C:\\work\\deliverable\\tickets\\gray_mono_a4_media-light.xml",
+      "devcaps": {
+        "PHYSICALOFFSETX": 96,
+        "PHYSICALOFFSETY": 96,
+        "LOGPIXELSX": 600,
+        "LOGPIXELSY": 600,
+        "HORZRES": 4768,
+        "VERTRES": 6824,
+        "PHYSICALWIDTH": 4960,
+        "PHYSICALHEIGHT": 7015
+      },
+      "fileSize": 1709654,
+      "sha256": "89D84AF17FE438C844718FC37CAFE75BA14F5C8E0AE157D023DAA63A3211A720",
+      "normalizedSha256": "58BC14ED97017BFD295DFB5EBEDC48B8A2F16C07FA03A22F78B44EC065978A52",
+      "pjlPrintQuality": "NORMAL",
+      "sourceImageSha256": [
+        "107938f3a4bbcdd55c0a771e72ad197296077cf77d97d2c6505e1bc54cdde0c9"
+      ],
+      "sourcePixelSha256": [
+        "27c94e6ee4d9ee8f6758de4374a1a2d5dc3d3ff5a3141a6fd200b2d337d94d85"
+      ],
+      "pages": [
+        {
+          "source": "C:\\work\\deliverable\\inputs\\a4_gray_600.png",
+          "sourceSha256": "107938f3a4bbcdd55c0a771e72ad197296077cf77d97d2c6505e1bc54cdde0c9",
+          "sourceSize": [
+            4960,
+            7016
+          ],
+          "sourceRect": [
+            0,
+            0,
+            4960,
+            7016
+          ],
+          "destinationRect": [
+            -96,
+            -96,
+            4960,
+            7016
+          ],
+          "mapMode": "MM_TEXT",
+          "dibMode": "24bpp top-down BGR",
+          "dibSha256": "88a7cec4ec7d8335192883227d7b42922bbb3339f849818697d8df6a6d430c8b"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "1 image pixel = 1 device pixel; physical page origin; printable clipping allowed.",
+    "PRN is a reserved Windows name; directory created with extended-length path.",
+    "Raw hashes include descriptive job names; different hashes alone do not prove raster differences."
+  ],
+  "identicalNormalizedOutputs": [],
+  "inputs": [
+    {
+      "filename": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "RGB",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+      "pixel_sha256": "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7",
+      "mode_and_pixel_sha256": "39b9d1968d6bf000324f07dd2315621ebebd43497eb46a847406e40d21809d47",
+      "rgb_bgr_sha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057",
+      "expected_file_sha256": "72e14afd7402682e75c66578b0ae3f19d83a73fec6477d8a2a990b95736c56bf",
+      "matches_user_expected_file_sha256": false
+    },
+    {
+      "filename": "C:\\work\\deliverable\\inputs\\a4_gray_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "L",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "107938f3a4bbcdd55c0a771e72ad197296077cf77d97d2c6505e1bc54cdde0c9",
+      "pixel_sha256": "27c94e6ee4d9ee8f6758de4374a1a2d5dc3d3ff5a3141a6fd200b2d337d94d85",
+      "mode_and_pixel_sha256": "5e4b33834aff90332345a058e313c1146e80488e0eee82c7e332c29153f8598d",
+      "rgb_bgr_sha256": "88a7cec4ec7d8335192883227d7b42922bbb3339f849818697d8df6a6d430c8b",
+      "expected_file_sha256": "bcfec8f1e86c151a133a6ff927cacfd4afd01ee60e0c1571a094ba2395629d99",
+      "matches_user_expected_file_sha256": false
+    },
+    {
+      "filename": "C:\\work\\deliverable\\inputs\\a4_band_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "RGB",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "804e8eed0f3a22794f568aa3e1b8a1051d5ae9a2f4dea03f2290383aa8f08ebc",
+      "pixel_sha256": "c7338a49ae39cfebd6ce3db4d950155e9cce311906401184d52d41302b1ba494",
+      "mode_and_pixel_sha256": "abe54280c3c02b989ddf5f7c451fb54d67ff945b619c241ab94b67a7d8b18d58",
+      "rgb_bgr_sha256": "1bce0c8e8c8dd1930fc63d51412ed39a7329cc1b52fe5aa136e816ed91755c3a",
+      "expected_file_sha256": "856d6a0a897036d41aa8cd3642652506a7912ea2645fa2db6deeab900713ede4",
+      "matches_user_expected_file_sha256": false
+    }
+  ],
+  "originalAttachmentAudit": [
+    {
+      "filename": "C:\\Users\\Administrator\\attachments\\efe779af-c5fa-49d3-a1bb-d3d3baf4088b\\a4_color_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "RGB",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "72e14afd7402682e75c66578b0ae3f19d83a73fec6477d8a2a990b95736c56bf",
+      "pixel_sha256": "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7",
+      "mode_and_pixel_sha256": "39b9d1968d6bf000324f07dd2315621ebebd43497eb46a847406e40d21809d47",
+      "rgb_bgr_sha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+    },
+    {
+      "filename": "C:\\Users\\Administrator\\attachments\\39b00802-ba68-47b6-8e56-b41b3bd83821\\a4_gray_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "L",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "bcfec8f1e86c151a133a6ff927cacfd4afd01ee60e0c1571a094ba2395629d99",
+      "pixel_sha256": "27c94e6ee4d9ee8f6758de4374a1a2d5dc3d3ff5a3141a6fd200b2d337d94d85",
+      "mode_and_pixel_sha256": "5e4b33834aff90332345a058e313c1146e80488e0eee82c7e332c29153f8598d",
+      "rgb_bgr_sha256": "88a7cec4ec7d8335192883227d7b42922bbb3339f849818697d8df6a6d430c8b"
+    },
+    {
+      "filename": "C:\\Users\\Administrator\\attachments\\b9d976c8-2990-47c7-a499-9732e466b6e9\\a4_band_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "RGB",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "856d6a0a897036d41aa8cd3642652506a7912ea2645fa2db6deeab900713ede4",
+      "pixel_sha256": "c7338a49ae39cfebd6ce3db4d950155e9cce311906401184d52d41302b1ba494",
+      "mode_and_pixel_sha256": "abe54280c3c02b989ddf5f7c451fb54d67ff945b619c241ab94b67a7d8b18d58",
+      "rgb_bgr_sha256": "1bce0c8e8c8dd1930fc63d51412ed39a7329cc1b52fe5aa136e816ed91755c3a"
+    }
+  ],
+  "pixelHashDefinition": "pixel_sha256=SHA256(Image.tobytes()); mode is recorded separately. mode_and_pixel_sha256=SHA256(ASCII mode + NUL + Image.tobytes()).",
+  "revision": "v2: explicit pixel-unit GDI+ source/destination rectangles; explicit MM_TEXT; original inputs were correct, intermediate GDI+ copy was not.",
+  "artifactInventory": [
+    {
+      "filename": "band_a4_media-light.json",
+      "fileSize": 3496,
+      "sha256": "0e87204da99d78ac372b104f4ff1877cda3db2cbe360883a716adac67aa8d029"
+    },
+    {
+      "filename": "band_a4_media-light.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "a6af4f1a7d6c525acf2a4e7dd081c3eef68e3888e7f1011751b73a8eff1504d4"
+    },
+    {
+      "filename": "band_mono_a4_media-light.json",
+      "fileSize": 3515,
+      "sha256": "c90c7bad3155db5b71c5392b73b54a7594cfcf2ae3a80b66f60dc5fe52e80ce9"
+    },
+    {
+      "filename": "band_mono_a4_media-light.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "be229c97a2e1346a7464c42e2907886400c904ea4f83c76852a004c5a0aafaef"
+    },
+    {
+      "filename": "color-gray_2page_a4_media-light.json",
+      "fileSize": 3595,
+      "sha256": "39b6ae1c993c6c3b3a45943c8be3e62fbee05ad1f320dedbb777aa35cde240bd"
+    },
+    {
+      "filename": "color-gray_2page_a4_media-light.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "a6af4f1a7d6c525acf2a4e7dd081c3eef68e3888e7f1011751b73a8eff1504d4"
+    },
+    {
+      "filename": "color_a4_media-env.json",
+      "fileSize": 3492,
+      "sha256": "3c55e698abed70ada4f89327a8ca9550b6fc1b7b84128ca63e6bd90f6b0d4db7"
+    },
+    {
+      "filename": "color_a4_media-env.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "7df9e97eae31b3286161fdf8abbc2a97766a574492c779065381dd62274c6172"
+    },
+    {
+      "filename": "color_a4_media-heavy.json",
+      "fileSize": 3502,
+      "sha256": "f0a86474fb6a920ee115559302de7b1fcec3f37f5d4f05246a8bc83436c2ad22"
+    },
+    {
+      "filename": "color_a4_media-heavy.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "6e52cb8c2409daf0032d3242183dc5f4c94ad648509bba90938e786276c036fc"
+    },
+    {
+      "filename": "color_a4_media-light.json",
+      "fileSize": 3502,
+      "sha256": "40e9062ef06920ced12fd8f4e5178e9ba560de66e1b235b982fd3091e9ebfc7b"
+    },
+    {
+      "filename": "color_a4_media-light.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "a6af4f1a7d6c525acf2a4e7dd081c3eef68e3888e7f1011751b73a8eff1504d4"
+    },
+    {
+      "filename": "color_a4_media-light_quality-best.json",
+      "fileSize": 3542,
+      "sha256": "9fdb34401219f3e0b09d5e5696004c7a5017beb96c6821b0071b2018e5bcb5e5"
+    },
+    {
+      "filename": "color_a4_media-light_quality-best.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "d7f0259635dec773ffc01e5462f56d7bef819154fdbef8ae140f821a96f8e0af"
+    },
+    {
+      "filename": "color_a4_media-light_quality-draft.json",
+      "fileSize": 3547,
+      "sha256": "3fca6890f386510fffa1fcb384e2186ca94972c6d5644ff2cf07ca32dc3d8d70"
+    },
+    {
+      "filename": "color_a4_media-light_quality-draft.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "3440a268cea79977bbbd31fcf76dca633ab192c031223404b77e5523a9b9349f"
+    },
+    {
+      "filename": "color_a4_media-matte.json",
+      "fileSize": 3502,
+      "sha256": "14f9c4ae15b2820470822c406b86aec02cc1940da04f5266cbca2da161a817eb"
+    },
+    {
+      "filename": "color_a4_media-matte.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "69eada3f03fbc0b97819c6a495d57f5d52459b803122790f7c199a8f6101bd5e"
+    },
+    {
+      "filename": "color_a4_media-postcard.json",
+      "fileSize": 3517,
+      "sha256": "c4977b84408d082d8a24e49c40aab0110e050c988a4a277fc3e375e855925357"
+    },
+    {
+      "filename": "color_a4_media-postcard.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "7688086a04b72d7446ee8b7d7079e3db5161b394c0f4d39ae03b33679db7dd94"
+    },
+    {
+      "filename": "color_a5_media-light.json",
+      "fileSize": 3503,
+      "sha256": "addee16fc2407f94342c80b04a7927f8f1fc7394eb456cbacc89dde6359561e6"
+    },
+    {
+      "filename": "color_a5_media-light.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "9d3c298cfabf7e64ffb90d5bf851b1009a0f783ddeca0322bf8fe04440e072b3"
+    },
+    {
+      "filename": "color_letter_media-light.json",
+      "fileSize": 3522,
+      "sha256": "a35c5bbfb4645757a6f5c43dc8048cd8cc1e8fccc198fa63882e83b45be3402f"
+    },
+    {
+      "filename": "color_letter_media-light.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "d15761753ac3d4076292350de9d50f73a0786aed638dc01af6bf1749afae1a3e"
+    },
+    {
+      "filename": "color_lettercustom_media-light.json",
+      "fileSize": 3556,
+      "sha256": "a192f708d3cba10beefebd55ef2d24de91d4a937ec153702cfea5a478535080e"
+    },
+    {
+      "filename": "color_lettercustom_media-light.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "aabe315f1fb39dac457b8fa8478692b1f5a39f87c7e2178302844d3283826de4"
+    },
+    {
+      "filename": "color_mono_a4_media-light.json",
+      "fileSize": 3521,
+      "sha256": "faf32333b61c6524ac29e9ca40424d9c4d94f3c636eb9fb3d42d96d0395b0775"
+    },
+    {
+      "filename": "color_mono_a4_media-light.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "be229c97a2e1346a7464c42e2907886400c904ea4f83c76852a004c5a0aafaef"
+    },
+    {
+      "filename": "decode-check.json",
+      "fileSize": 1301,
+      "sha256": "724f9eeef26cd7e4b72e8fc6b3a1ae94c8003c111f486eca2c6b7223677117dd"
+    },
+    {
+      "filename": "devmodes/best-diff.txt",
+      "fileSize": 74,
+      "sha256": "7734380745559a543732e835b1085cfa42a1f6130001a7c1d8726ebb1b5456ec"
+    },
+    {
+      "filename": "devmodes/best.bin",
+      "fileSize": 1148,
+      "sha256": "5a796e9ae044af6be9c21aa1f660423071e0c4ec86cce31ef2f984f8ec9b10ad"
+    },
+    {
+      "filename": "devmodes/best.bin.hex.txt",
+      "fileSize": 2296,
+      "sha256": "3a02ad720e17256a1459e70812972b3ca2c9f8a738c3cceebd4cae1e47b1c255"
+    },
+    {
+      "filename": "devmodes/best.bin.json",
+      "fileSize": 439,
+      "sha256": "ca723dda783e51445e399fa8c85953e811014aa375b673be1727bdb64990195f"
+    },
+    {
+      "filename": "devmodes/draft-diff.txt",
+      "fileSize": 74,
+      "sha256": "162103fc5d8a275b8c6ca18b68ac526e7b598a9d97f8674504c451a8d74df955"
+    },
+    {
+      "filename": "devmodes/draft.bin",
+      "fileSize": 1148,
+      "sha256": "e226958a374e844ab6e53fe95b9c5c1aaf5bb5136e888365a6113063004c6acf"
+    },
+    {
+      "filename": "devmodes/draft.bin.hex.txt",
+      "fileSize": 2296,
+      "sha256": "aa4396885a5825c07751a568f6bae511724848c0b6a21df02a3f7b7dffdbcd14"
+    },
+    {
+      "filename": "devmodes/draft.bin.json",
+      "fileSize": 439,
+      "sha256": "ca723dda783e51445e399fa8c85953e811014aa375b673be1727bdb64990195f"
+    },
+    {
+      "filename": "devmodes/standard-applied.bin",
+      "fileSize": 1148,
+      "sha256": "11ab9aa9a70386ccb7eff63539e82eb0767237c2135ef41661c7f846072bc3b8"
+    },
+    {
+      "filename": "devmodes/standard-applied.bin.hex.txt",
+      "fileSize": 2296,
+      "sha256": "81e7fede334e9fa40c4cce7656eccd54ec9fc87b0dd1bf4dfe261b34dd7f7fab"
+    },
+    {
+      "filename": "devmodes/standard-applied.bin.json",
+      "fileSize": 439,
+      "sha256": "ca723dda783e51445e399fa8c85953e811014aa375b673be1727bdb64990195f"
+    },
+    {
+      "filename": "devmodes/standard.bin",
+      "fileSize": 1148,
+      "sha256": "1f6b2f0761283418a1fe1c8a3b4b53382ccea4ba84f66c6656314cc84617867b"
+    },
+    {
+      "filename": "devmodes/standard.bin.hex.txt",
+      "fileSize": 2296,
+      "sha256": "74022e66c00aff19669fab164a3c035ab271392dfc141ccb3cc22173c55b5a16"
+    },
+    {
+      "filename": "devmodes/standard.bin.json",
+      "fileSize": 437,
+      "sha256": "319765ff20bd1af6138a82219b4c6d3fa85886addd0298c7657b0c8a58120ba1"
+    },
+    {
+      "filename": "drawing-audit.txt",
+      "fileSize": 1884,
+      "sha256": "6b9d9b040318b6147c01fc1fbe69ee6c6301849b4a6f713821a28d5120a4370b"
+    },
+    {
+      "filename": "first-band-context.hex.txt",
+      "fileSize": 164150,
+      "sha256": "851ed15e5dd99e1b1b6dc9e49b35614d6af24a0d1a817f2eeff2ef055afa6e06"
+    },
+    {
+      "filename": "first512.hex.txt",
+      "fileSize": 2208,
+      "sha256": "8ec8822d1b0b82f2a3a589d95586d7787a62012b741795d16eb0d5cf86b21730"
+    },
+    {
+      "filename": "gray_a4_media-light.json",
+      "fileSize": 3497,
+      "sha256": "dbc4714e2a1709d8164176385ac069dd81829030a9caf36782da85d0ffdccd1f"
+    },
+    {
+      "filename": "gray_a4_media-light.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "a6af4f1a7d6c525acf2a4e7dd081c3eef68e3888e7f1011751b73a8eff1504d4"
+    },
+    {
+      "filename": "gray_mono_a4_media-light.json",
+      "fileSize": 3516,
+      "sha256": "59ad53bbd5afc609a388db47bb2e45f1a7f9c5491928678c31e14718f766a32a"
+    },
+    {
+      "filename": "gray_mono_a4_media-light.json.devmode.bin",
+      "fileSize": 1148,
+      "sha256": "be229c97a2e1346a7464c42e2907886400c904ea4f83c76852a004c5a0aafaef"
+    },
+    {
+      "filename": "input-audit.json",
+      "fileSize": 4299,
+      "sha256": "36cafec321919ecfd2c93819d42e4381d2a3c553c66f37ba732ea1a644d71b1c"
+    },
+    {
+      "filename": "INPUT_FINDINGS.md",
+      "fileSize": 3793,
+      "sha256": "f5d13174ccb828fbe97383124909b062f90d5270cd9794fdc615277a9999b74c"
+    },
+    {
+      "filename": "inputs/a4_band_600.png",
+      "fileSize": 117900,
+      "sha256": "804e8eed0f3a22794f568aa3e1b8a1051d5ae9a2f4dea03f2290383aa8f08ebc"
+    },
+    {
+      "filename": "inputs/a4_color_600.png",
+      "fileSize": 122562,
+      "sha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18"
+    },
+    {
+      "filename": "inputs/a4_gray_600.png",
+      "fileSize": 51228,
+      "sha256": "107938f3a4bbcdd55c0a771e72ad197296077cf77d97d2c6505e1bc54cdde0c9"
+    },
+    {
+      "filename": "inputs/make_inputs.py",
+      "fileSize": 745,
+      "sha256": "235b8557e5cf18aa958994a50b337ce861f7cce23c54fdbe86d9e5d6b270f190"
+    },
+    {
+      "filename": "NOTES_observed.md",
+      "fileSize": 197399,
+      "sha256": "47327e0616bc62503eb71aec986f9c0da3ad746e18698eb3de238390773c563c"
+    },
+    {
+      "filename": "NOTES_static_reference.md",
+      "fileSize": 15021,
+      "sha256": "b95a29da2f54a1ea2c5b3fa61a2dfccb804e2c8976cbcdc3fa459d5559931c69"
+    },
+    {
+      "filename": "PrintPng.exe",
+      "fileSize": 20992,
+      "sha256": "d0ebb7479b718ba5a81f563dc6061783d1df4a9feaa8472d1fbbaa1f1578cd80"
+    },
+    {
+      "filename": "prn/band_a4_media-light.prn",
+      "fileSize": 643191,
+      "sha256": "34a51e155dea92b94bd1ebf3f3b80ecf3a07ea3e1623a4cfec7ae2beafc5d9da"
+    },
+    {
+      "filename": "prn/band_mono_a4_media-light.prn",
+      "fileSize": 388923,
+      "sha256": "78ca893709ee9f260242e4f0f7302643313e599f1bd5f221692811706fc0dcf2"
+    },
+    {
+      "filename": "prn/color-gray_2page_a4_media-light.prn",
+      "fileSize": 3993480,
+      "sha256": "b4211621b5192326bb4143c08fc34b4afe016fd4930cec114604e433c16ec3dd"
+    },
+    {
+      "filename": "prn/color_a4_media-env.prn",
+      "fileSize": 2019361,
+      "sha256": "9fbd213edfc2de35f1e7cfea90a709dc088671089ea24e2503203071b84a5acd"
+    },
+    {
+      "filename": "prn/color_a4_media-heavy.prn",
+      "fileSize": 2019386,
+      "sha256": "34d56d4b9ec0f9fbd41e558107e52aaac2ede6650beaf192324f8024bb7ea1e8"
+    },
+    {
+      "filename": "prn/color_a4_media-light.prn",
+      "fileSize": 2019363,
+      "sha256": "2fb09da7a8c6b97a43d51f38b2129815701a7689c5f0b97d3d0d9d940bfd58a6"
+    },
+    {
+      "filename": "prn/color_a4_media-light_quality-best.prn",
+      "fileSize": 2019374,
+      "sha256": "69b02949842bab654c51cb8b63a66927a3796fa7c5fdad7b413f235ac8b3331f"
+    },
+    {
+      "filename": "prn/color_a4_media-light_quality-draft.prn",
+      "fileSize": 2019399,
+      "sha256": "4c9f7246d764afa42ae9a57acf168c3169ff7dfe45e48e3003d8daebef749739"
+    },
+    {
+      "filename": "prn/color_a4_media-matte.prn",
+      "fileSize": 2019363,
+      "sha256": "f8612a2805e8a5c1b8f5deae7e5788b2535ec250175c14e440bdc8d544cad42b"
+    },
+    {
+      "filename": "prn/color_a4_media-postcard.prn",
+      "fileSize": 2019389,
+      "sha256": "cf6f94f8f691e629d82b05767da8455d1573cc75e60395172c32e4f8a1971efe"
+    },
+    {
+      "filename": "prn/color_a5_media-light.prn",
+      "fileSize": 859438,
+      "sha256": "a385d1361295a5df41c8fbbfbfd572f6bc2226b715588ef04f0d9b2a1e79f231"
+    },
+    {
+      "filename": "prn/color_letter_media-light.prn",
+      "fileSize": 1901161,
+      "sha256": "664e828c601d02f1ff579bcf19efa3528ef617af92ba33a8d9d646188e584d32"
+    },
+    {
+      "filename": "prn/color_lettercustom_media-light.prn",
+      "fileSize": 1901172,
+      "sha256": "b18076a095a41c86bd46989a9df7ebc6f70349fe4b5e0b5dfabccd1740e03224"
+    },
+    {
+      "filename": "prn/color_mono_a4_media-light.prn",
+      "fileSize": 1713623,
+      "sha256": "ff59f907a69be4a41d0a15bfadf39a3b96a6113638d469f4926407dd44c6a3a8"
+    },
+    {
+      "filename": "prn/gray_a4_media-light.prn",
+      "fileSize": 1975001,
+      "sha256": "5e96304b5bead012f2012e603b25f78a682afe8b9b4a77383f76b6d6357aa48c"
+    },
+    {
+      "filename": "prn/gray_mono_a4_media-light.prn",
+      "fileSize": 1709654,
+      "sha256": "89d84af17fe438c844718fc37cafe75ba14f5c8e0ae157d023daa63a3211a720"
+    },
+    {
+      "filename": "PRN_sizes_v1_v2.md",
+      "fileSize": 940,
+      "sha256": "409c0835f03fd6490b452a81aed24cffe7b9589c0c89ea8462856b2e8e1469a8"
+    },
+    {
+      "filename": "README.md",
+      "fileSize": 6784,
+      "sha256": "764b2a39be51c542b07325ef02d77ae38a761616834b0710fda02d1f84a55235"
+    },
+    {
+      "filename": "screenshots/advanced.jpg",
+      "fileSize": 193144,
+      "sha256": "7c641593867377b994dd9a8578c8efc25420ab5b7160f4cff42bff1d88af2fb4"
+    },
+    {
+      "filename": "screenshots/defined-paper.jpg",
+      "fileSize": 163381,
+      "sha256": "c0a1d0ea589d42357b53b1e2553e7d02d2817f0dccf72554db6c6138e79cee20"
+    },
+    {
+      "filename": "screenshots/extension.jpg",
+      "fileSize": 148400,
+      "sha256": "7bfdee6394397403846e5560b218bbdfc149c88c1154160906db23dde45966cf"
+    },
+    {
+      "filename": "screenshots/layout.jpg",
+      "fileSize": 168862,
+      "sha256": "6a5372905061cc0632aece8bcf2bcf0749c2ff10ac01e22abbe79e970850e471"
+    },
+    {
+      "filename": "screenshots/paper-quality.jpg",
+      "fileSize": 164587,
+      "sha256": "c747c18083557b38568340027a318dc4d43064589e53e54d00bac1b8daa142b8"
+    },
+    {
+      "filename": "src/audit_inputs.py",
+      "fileSize": 1616,
+      "sha256": "35a3ba73c46200c844c73ff9235a01ef55582d223487c7577d855edf6752a637"
+    },
+    {
+      "filename": "src/AuditDrawing.cs",
+      "fileSize": 1098,
+      "sha256": "622878349de6db3c7bf550dffcaf12f0cc583a6e5d6fa15cc03e6bf6a06743eb"
+    },
+    {
+      "filename": "src/Build.ps1",
+      "fileSize": 425,
+      "sha256": "01befd07ba3ecbbcdedf5613719d644372e9f0883e0090b7620c43e4ddef90e4"
+    },
+    {
+      "filename": "src/decode_check.py",
+      "fileSize": 1236,
+      "sha256": "a442460788e3a51ba60a1cbcd8e74376b537b4dbd15e337c5349762b52dacf06"
+    },
+    {
+      "filename": "src/finalize_v2.py",
+      "fileSize": 2744,
+      "sha256": "2cc7fa893505bfddd38ffe9f44a8e338194c7cedff2b6a551a54137ceffd21e2"
+    },
+    {
+      "filename": "src/Generate.ps1",
+      "fileSize": 2291,
+      "sha256": "5ff8dcd2e541115c2d635adeaa2f6dc1eaa75936ce90febfb2b3e022befdbc44"
+    },
+    {
+      "filename": "src/make_inputs.py",
+      "fileSize": 745,
+      "sha256": "235b8557e5cf18aa958994a50b337ce861f7cce23c54fdbe86d9e5d6b270f190"
+    },
+    {
+      "filename": "src/observe.py",
+      "fileSize": 4232,
+      "sha256": "a4dc1ec4ad15aec0b7a91b53b7dbcbc7c9962cc2bd59a2e49a1a5935b0109169"
+    },
+    {
+      "filename": "src/package.py",
+      "fileSize": 2824,
+      "sha256": "cdfe246faf0f5dfedc5077284d08a8c39a9091a85f51b791fa6b3edc3f3d270f"
+    },
+    {
+      "filename": "src/PrintPng.cs",
+      "fileSize": 9587,
+      "sha256": "a3c32cd7c7fc7422c160aafd066cae621811635bfed1ae9e1615ccfca28aa699"
+    },
+    {
+      "filename": "src/Verify.ps1",
+      "fileSize": 1768,
+      "sha256": "5357a6786d4ded3bc79b74e27a494255e1da75de203972eebc703459471ae0c8"
+    },
+    {
+      "filename": "src/VerifyErrors.ps1",
+      "fileSize": 637,
+      "sha256": "75b3e915b045eb52ac84c7b7d1501e7cd1d1b0222088f21b223a295ac46d334a"
+    },
+    {
+      "filename": "src/write_observed_notes.py",
+      "fileSize": 4872,
+      "sha256": "c1a6ad0a2eb1142bc6c1248d33f6622f7968d5b801f55020e61b786993a58805"
+    },
+    {
+      "filename": "stream-observations.json",
+      "fileSize": 155381,
+      "sha256": "d2d1592e78f0e76bda818acc75a602367ef4630dfb43e16c4894b200f5a9eec3"
+    },
+    {
+      "filename": "tickets/band_a4_media-light.xml",
+      "fileSize": 4787,
+      "sha256": "e925f62d2ed4adc767d88eac23d6438665978cb09728e54157f38e95436a8b13"
+    },
+    {
+      "filename": "tickets/band_mono_a4_media-light.xml",
+      "fileSize": 4791,
+      "sha256": "55edea6a0e1c7bab2dc5d5f47d756fd9aab39745538fb2312ce9ce16aab8094f"
+    },
+    {
+      "filename": "tickets/color-gray_2page_a4_media-light.xml",
+      "fileSize": 4787,
+      "sha256": "e925f62d2ed4adc767d88eac23d6438665978cb09728e54157f38e95436a8b13"
+    },
+    {
+      "filename": "tickets/color_a4_media-env.xml",
+      "fileSize": 4785,
+      "sha256": "3f1445a32f19d645c4c5cd5ade0231f977c9b0049cf0829a388c5ba8c11dd133"
+    },
+    {
+      "filename": "tickets/color_a4_media-heavy.xml",
+      "fileSize": 4787,
+      "sha256": "7d7d2492b455a5809da05da0bf9bebb067b18ab22c0615bebd4bca2ef5da018c"
+    },
+    {
+      "filename": "tickets/color_a4_media-light.xml",
+      "fileSize": 4787,
+      "sha256": "e925f62d2ed4adc767d88eac23d6438665978cb09728e54157f38e95436a8b13"
+    },
+    {
+      "filename": "tickets/color_a4_media-light_quality-best.xml",
+      "fileSize": 4787,
+      "sha256": "a655b0a1fcf7d6ae4f739fe0e7eb467b629c7b0db4a5abcc27d58abae6d81f6b"
+    },
+    {
+      "filename": "tickets/color_a4_media-light_quality-draft.xml",
+      "fileSize": 4787,
+      "sha256": "edfb91bd5135d04014c1b321849cb3095d15ea7ba91e29b7a710c7559fdd1d14"
+    },
+    {
+      "filename": "tickets/color_a4_media-matte.xml",
+      "fileSize": 4787,
+      "sha256": "7c7cbc51ac0e89a6bb67f7946de3c5864b080f74fc36ed412153ebe10d06dede"
+    },
+    {
+      "filename": "tickets/color_a4_media-postcard.xml",
+      "fileSize": 4790,
+      "sha256": "4540f57290ed59132e1c19fbe32a957b054db06e6dc01ced7b2b05670db9e22a"
+    },
+    {
+      "filename": "tickets/color_a5_media-light.xml",
+      "fileSize": 4787,
+      "sha256": "8eaf74f499c2ae1cfe1135ed914dbf53e2bc266c936d3f7fb5a0242ff9e98dc3"
+    },
+    {
+      "filename": "tickets/color_letter_media-light.xml",
+      "fileSize": 4800,
+      "sha256": "a574bae73bac1c642ae4f38b171ce66a670c133d9d01428d145a2875ed10343f"
+    },
+    {
+      "filename": "tickets/color_lettercustom_media-light.xml",
+      "fileSize": 5101,
+      "sha256": "5b53a4d7600386cb2e804e78a2e3d1190e9089f0d9401d73de0d74a466800b3d"
+    },
+    {
+      "filename": "tickets/color_mono_a4_media-light.xml",
+      "fileSize": 4791,
+      "sha256": "55edea6a0e1c7bab2dc5d5f47d756fd9aab39745538fb2312ce9ce16aab8094f"
+    },
+    {
+      "filename": "tickets/gray_a4_media-light.xml",
+      "fileSize": 4787,
+      "sha256": "e925f62d2ed4adc767d88eac23d6438665978cb09728e54157f38e95436a8b13"
+    },
+    {
+      "filename": "tickets/gray_mono_a4_media-light.xml",
+      "fileSize": 4791,
+      "sha256": "55edea6a0e1c7bab2dc5d5f47d756fd9aab39745538fb2312ce9ce16aab8094f"
+    }
+  ],
+  "artifactInventoryNote": "Every archive file except manifest.json itself; self-hashing is intentionally excluded. Job paths refer to this Windows capture machine."
+}

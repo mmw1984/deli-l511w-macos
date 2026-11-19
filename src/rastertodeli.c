@@ -17,7 +17,8 @@ typedef struct { unsigned char data[1024]; size_t n; } Record;
 typedef struct { const char *option, *wire; unsigned char border, media; } Paper;
 static const Paper papers[] = {
     {"A4", "A4", 0, 0xff}, {"Letter", "LETTER", 0, 0xff},
-    {"A5", "A5", 0, 0xff}, {"Photo4x6", "R4", 1, 0xdd}
+    {"A5", "A5", 0, 0xff}, {"Photo4x6", "R4", 1, 0xdd},
+    {"LetterCustom", "", 0, 0xff}
 };
 static volatile sig_atomic_t cancelled;
 static void cancel_job(int sig) { (void)sig; cancelled = 1; }
@@ -62,24 +63,32 @@ static void quoted(const char *prefix, const char *s) {
     text("\"\n");
 }
 static void job_start(const char *user, const char *title, const char *quality, int gray) {
-    char id[80], date[80]; time_t now=time(NULL);
-    /* TODO(golden): Windows uses FILETIME and host identity; these are portable equivalents. */
-    snprintf(id,sizeof(id),"DELIPRINT_%016llx",(unsigned long long)now);
-    snprintf(date,sizeof(date),"@PJL SET FDATETIME=%llu.%llu\n",
-             (unsigned long long)(now/86400),(unsigned long long)(now%86400));
+    char id[80], date[80]; struct timespec stamp;
+    if (timespec_get(&stamp,TIME_UTC)!=TIME_UTC) fail("Cannot read job time");
+    time_t now=stamp.tv_sec;
+    struct tm local; if (!localtime_r(&now,&local)) fail("Cannot convert job time");
+    unsigned int days=(unsigned int)local.tm_yday;
+    for (int year=1900; year<local.tm_year+1900; year++)
+        days+=365u+(year%4==0 && (year%100!=0 || year%400==0));
+    /* FILETIME ticks; Windows job metadata is deliberately non-deterministic. */
+    snprintf(id,sizeof(id),"DELIPRINT_%016llx",((unsigned long long)now+11644473600ULL)*10000000ULL+(unsigned long long)stamp.tv_nsec/100);
+    snprintf(date,sizeof(date),"@PJL SET FDATETIME=%u.%u\n",days,
+             (unsigned int)((local.tm_hour*3600+local.tm_min*60+local.tm_sec)*10+stamp.tv_nsec/100000000));
     text("\033%-12345X@PJL JOB\n@PJL SET STRINGCODESET=UTF8\n");
     quoted("@PJL SET USERNAME=\"",user);
-    text("@PJL SET LMULTIPAGEPRINT=OFF\n@PJL COMMENT Deli CUPS experimental\n");
-    /* TODO(golden): host metadata is not yet compared with a Windows spool. */
+    text("@PJL SET LMULTIPAGEPRINT=OFF\n@PJL COMMENT Deli L511W\n");
     text("@PJL LJOBINFO USERID=\"");
     for (size_t i=0; user[i] && i<255; i++) {
         unsigned char c=(unsigned char)user[i];
         if (c<32 || c==127 || c=='"' || c=='\\') c='_';
         out(&c,1);
     }
-    text("\" HOSTID=\"CUPS\"\n");
+    text("\" ");
+    char host[256]="localhost";
+    const char *hostname=getenv("HOSTNAME");
+    if (!hostname) { gethostname(host,sizeof(host)-1); hostname=host; }
+    quoted("HOSTID=\"",hostname);
     quoted("@PJL SET JOBNAME=\"",title);
-    /* TODO(golden): conservative defaults for OEM private DEVMODE controls. */
     text("@PJL SET ECONOMODE=OFF\n@PJL SET FIMPROVE=OFF\n"
          "@PJL SET FGHOST=OFF\n@PJL SET FDENSITY=OFF\n@PJL SET PNPQIMPROVE=OFF\n");
     quoted("@PJL SET FPRINTFILEID=\"",id); text(date);
@@ -99,14 +108,17 @@ static void page_start(const Paper *p, unsigned int media, unsigned int quality,
     Record r={.n=0};
     /* 1800147c0, simplex path. */
     hex(&r,"c0 01 f8 26 c0 00 f8 28");
-    typed8(&r,media,0x27); typed16(&r,copies,0x31);
-    hex(&r,"c8 c0"); put(&r,(unsigned int)strlen(p->wire));
-    bytes(&r,p->wire,strlen(p->wire)); hex(&r,"f8 25");
-    /* TODO(golden): select OEM borderless R4 entry; runtime L511W model mask not captured. */
+    typed8(&r,media,0x27); typed16(&r,copies,0xec);
+    if (!strcmp(p->option,"LetterCustom"))
+        hex(&r,"d5 de 6e 07 41 7f bf 2f 41 f8 2f c0 00 f8 30 43");
+    else {
+        hex(&r,"c8 c0"); put(&r,(unsigned int)strlen(p->wire));
+        bytes(&r,p->wire,strlen(p->wire)); hex(&r,"f8 25");
+    }
     typed8(&r,p->border ? 1 : 2,0xed); put(&r,0x43);
     hex(&r,"d5 00 00 80 3f 00 00 80 3f f8 2b 77 c0 01 f8 47 71 c0 01 f8 48 72");
-    /* TODO(golden): private DEVMODE color selector: 0 appears RGB, nonzero gray. */
-    typed8(&r,gray ? 1 : 2,3); put(&r,0x6a);
+    (void)gray;
+    typed8(&r,2,3); put(&r,0x6a);
     put(&r,0xd3); u16(&r,p->border ? 0 : 96); u16(&r,p->border ? 0 : 96);
     hex(&r,"f8 2a 75"); typed8(&r,quality,0xef); typed8(&r,1,0xee); put(&r,0x40);
     emit(&r);
@@ -124,15 +136,11 @@ static unsigned char *encode(unsigned char *pixels, unsigned int w, unsigned int
     if (setjmp(e.jump)) { jpeg_destroy_compress(&c); fail("JPEG encoding failed"); }
     jpeg_create_compress(&c); jpeg_mem_dest(&c,&mem,size);
     c.image_width=w; c.image_height=h; c.input_components=gray ? 1 : 3;
-    /* TODO(golden): Windows passes EXT_BGR after its buffer handling; CUPS input is RGB.
-       Verify channel ordering at that callback boundary against the golden color bars. */
     c.in_color_space=gray ? JCS_GRAYSCALE : JCS_RGB;
     jpeg_set_defaults(&c); jpeg_set_quality(&c,quality,TRUE);
     /* 18000c100: option 3 sets 2x1 luma and 1x1 chroma (4:2:2). */
     if (!gray) { c.comp_info[0].h_samp_factor=2; c.comp_info[0].v_samp_factor=1; }
-    c.optimize_coding=FALSE; c.dct_method=JDCT_ISLOW;
-    /* TODO(golden): standard IJG tables/default integer DCT inferred from linked libjpeg-turbo.
-       No Windows spool yet proves table bytes or optional pre-JPEG enhancement equivalence. */
+    c.optimize_coding=FALSE; c.dct_method=JDCT_ISLOW; c.restart_in_rows=1;
     jpeg_start_compress(&c,TRUE);
     while (c.next_scanline<c.image_height) {
         JSAMPROW row=pixels+(size_t)c.next_scanline*w*(gray ? 1u : 3u);
@@ -225,7 +233,7 @@ int main(int argc, char **argv) {
     if (media) {
         if (!strcmp(media,"Auto")) override=0;
         else if (!strcmp(media,"Plain")) override=0xff;
-        else if (!strcmp(media,"Photo")) override=0xdd;
+        else if (!strcmp(media,"Photo") || !strcmp(media,"Heavy")) override=0xdd;
         else if (!strcmp(media,"Matte")) override=0xdc;
         else if (!strcmp(media,"Envelope")) override=0xf7;
         else if (!strcmp(media,"Postcard")) override=0xf6;
@@ -243,8 +251,6 @@ int main(int argc, char **argv) {
         const Paper *p=paper_for(cupsGetOption("PageSize",count,opts),&h);
         unsigned int m=override ? override : p->media;
         unsigned int jq=90;
-        /* TODO(golden): omit Windows model-specific sharpening/gamma/line enhancement.
-           Raw socket jobs use JPEG quality 90; High/Draft change PJL, not JPEG tables. */
         if (!pages) {
             if (m==0xdd && !strcmp(q,"DRAFT")) q="NORMAL";
             job_start(argv[2],argv[3],q,gray); jobgray=gray;

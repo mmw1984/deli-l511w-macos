@@ -1,5 +1,73 @@
 # Local verification
 
+## v2 Windows golden validation
+
+This section supersedes the pre-golden results below. All 16 v2 PRNs parse and
+decode. Source pixel hashes and capture hashes match the manifest. Normalized
+non-image records match for all 16 (file-ID/time masked; image checksum/length
+validated separately). JPEG headers were stripped by Windows, so table identity
+is inferred, not directly compared. Component count, sampling and restart-row
+settings are supported by exact entropy matches. Full actual comparison output:
+
+```text
+band_a4_media-light.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=27/27 identical PSNR=infdB
+band_mono_a4_media-light.prn: records=IDENTICAL tables=IJG-Q90/1-component/DRI-row (inferred) payloads=27/27 identical PSNR=infdB
+color-gray_2page_a4_media-light.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=46/54 identical PSNR=76.72dB
+color_a4_media-env.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=23/27 identical PSNR=81.64dB
+color_a4_media-heavy.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=27/27 identical PSNR=infdB
+color_a4_media-light.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=23/27 identical PSNR=81.64dB
+color_a4_media-light_quality-best.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=23/27 identical PSNR=81.64dB
+color_a4_media-light_quality-draft.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=27/27 identical PSNR=infdB
+color_a4_media-matte.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=23/27 identical PSNR=81.64dB
+color_a4_media-postcard.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=27/27 identical PSNR=infdB
+color_a5_media-light.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=18/19 identical PSNR=88.72dB
+color_lettercustom_media-light.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=21/25 identical PSNR=81.48dB
+color_letter_media-light.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=21/25 identical PSNR=81.48dB
+color_mono_a4_media-light.prn: records=IDENTICAL tables=IJG-Q90/1-component/DRI-row (inferred) payloads=17/27 identical PSNR=22.28dB
+gray_a4_media-light.prn: records=IDENTICAL tables=IJG-Q90/YCbCr-422/DRI-row (inferred) payloads=23/27 identical PSNR=74.47dB
+gray_mono_a4_media-light.prn: records=IDENTICAL tables=IJG-Q90/1-component/DRI-row (inferred) payloads=17/27 identical PSNR=20.30dB
+PASS: all 16 golden streams parsed, decoded and compared; dynamic metadata masked
+```
+
+The comparison passing means framing/parse invariants hold, **not pixel identity**.
+Mono tonal conversion remains unmatched; Normal/High color differs slightly from
+Draft due to omitted OEM enhancement. See README for examples and limitations.
+The source list is reversed before raster creation, matching GPD
+`OutputOrderReversed?: TRUE` and the PPD default. This queue behavior has not
+been exercised on macOS. Letter crops extend beyond the source width and use
+white, not Pillow's default black padding.
+
+Actual `make test` result after encoder/parser changes:
+
+```text
+VALID: 2 pages, 6 bands, 36505 bytes; all records/checksums/JPEG bands verified
+ROUNDTRIP gray: 2 pages, 3 bands/page, max-channel MAE=0.232 < 8 PASS
+PASS: full/partial bands and row-token boundaries (11 heights)
+PASS: 105 paper/media/quality combinations
+PASS: PJL metadata injection sanitized
+PASS: file/stdin input; empty, truncated, unsupported raster/options/copies rejected
+PASS: every binary byte mutation rejected (except legal A4->A5); truncation/trailing/PJL corruption rejected
+ALL TESTS PASSED; visual evidence: build/test/comparison.png
+```
+
+Viewed `build/test/comparison.png`, `build/golden/band-golden.png`, and
+`build/golden/color-golden.png`: RGB/gray synthetic panels align; golden red
+ends after row159 and primary color order is red/green/blue. Saved golden crops
+are exact pixel crops, not screenshot-derived measurements.
+
+Actual PPD validation:
+
+```text
+ppd/Deli-L511W.ppd: PASS
+        WARN    Size "LetterCustom" should be the Adobe standard name "Letter".
+        WARN    Size "Photo4x6" should be the Adobe standard name "102.28x151.98mm.Fullbleed".
+```
+
+The names distinguish the custom on-wire Letter record and preserve the existing
+photo option. No macOS package build, real queue or printer test was performed.
+
+## Initial static-reconstruction checks (historical)
+
 Environment: Ubuntu Linux, `cc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0`,
 CUPS 2.4.1, system libjpeg-turbo. No Windows execution or printer.
 

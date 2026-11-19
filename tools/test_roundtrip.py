@@ -69,13 +69,13 @@ def main():
         assert parse(result.stdout, verbose=False)[0].height == height
     print("PASS: full/partial bands and row-token boundaries (11 heights)")
 
-    for paper in ("A4", "Letter", "A5", "Photo4x6"):
-        for media in ("Auto", "Plain", "Photo", "Matte", "Envelope", "Postcard"):
+    for paper in ("A4", "Letter", "A5", "Photo4x6", "LetterCustom"):
+        for media in ("Auto", "Plain", "Photo", "Heavy", "Matte", "Envelope", "Postcard"):
             for quality in ("Draft", "Normal", "High"):
                 result = run(data, f"PageSize={paper} MediaType={media} DeliQuality={quality}")
                 assert result.returncode == 0, result.stderr.decode()
                 parse(result.stdout, verbose=False)
-    print("PASS: 72 paper/media/quality combinations")
+    print("PASS: 105 paper/media/quality combinations")
 
     # Untrusted CUPS argv fields cannot introduce ESC, quotes, or PJL commands.
     result = run(data, user='user\"\n@PJL EOJ\x1b', title='title\r\n\x1b\\\"')

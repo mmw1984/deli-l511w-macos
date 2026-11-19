@@ -20,4 +20,10 @@ build/make_raster: tools/make_raster.c | build
 test: all
 	python3 tools/test_roundtrip.py
 
-.PHONY: all test
+build/raw_raster: tools/raw_raster.c | build
+	$(CC) $(CPPFLAGS) $(CFLAGS) $< -o $@ $(LDFLAGS) $(CUPS_LIBS)
+
+compare-golden: all build/raw_raster
+	python3 tools/compare_golden.py
+
+.PHONY: all test compare-golden

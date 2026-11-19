@@ -1,9 +1,9 @@
 # Deli L511W Enhanced XL — experimental CUPS driver
 
-**No printer or golden Windows PRN has validated this driver. Do not use for
-production printing.** It implements the best current static reconstruction of
-Windows x64 renderer 1.0.1.4, not a claim of byte-identical Windows output or
-firmware acceptance. `TODO(golden)` comments identify assumptions to revisit.
+**Windows v1.0.1.4 golden framing is validated; no printer has been tested.
+Do not use for production printing.** Color payloads mostly match exactly;
+Windows monochrome tonal conversion is not reproduced. This is not a claim of
+byte-identical Windows output or firmware acceptance.
 The reference analysis is `../NOTES.md` (not required to build this repository).
 This software is based in part on the work of the Independent JPEG Group.
 
@@ -15,6 +15,7 @@ Dependencies on Debian/Ubuntu:
 sudo apt-get install build-essential pkg-config libcups2-dev libcupsimage2-dev libjpeg-dev python3-pil cups-client
 make
 make test
+make compare-golden
 cupstestppd -I filters ppd/Deli-L511W.ppd
 ```
 
@@ -114,10 +115,10 @@ source PPD in `lpadmin -P`. Do not place filters in a user-writable server path.
 
 | CUPS option | Values | On-wire reconstruction |
 |---|---|---|
-| `PageSize` | A4, Letter, A5, Photo4x6 | `A4`, `LETTER`, `A5`, OEM `R4` name |
+| `PageSize` | A4, Letter, LetterCustom, A5, Photo4x6 | standard names, custom Letter float pair, OEM `R4` |
 | `ColorModel` | RGB, Gray | PPD chooses RGB24 or W8 raster; PJL CMYK/BLACK |
 | `DeliQuality` | Draft, Normal, High | PJL DRAFT/NORMAL/HIGH; photo forces NORMAL for Draft |
-| `MediaType` | Auto, Plain, Photo, Matte, Envelope, Postcard | ff/dd/dc/f7/f6; Auto uses photo for R4, plain otherwise |
+| `MediaType` | Auto, Plain, Heavy, Photo, Matte, Envelope, Postcard | ff/dd/dc/f7/f6; Photo aliases Heavy; Auto uses photo for R4, plain otherwise |
 | copies | 1..65535 | page setup and EndPage LE16 copy count |
 
 The options string selects media/quality; color is taken from the actual raster
@@ -143,29 +144,52 @@ Evidence implemented from renderer VAs (image base `0x180000000`):
   one-byte `aa` embedded payload and vendor `aa` field (not the JPEG checksum).
 - `1800146c0`: EndPage; `180015360`: `49 42`; `1800156c0`: 44-byte PJL footer.
 
-### TODO(golden): must validate before calling this Windows-equivalent
+### Windows golden findings and remaining limitations
 
-1. Exact runtime L511W model mask/private DEVMODE: particularly color selector,
-   R4 borderless entry and media defaults. Letter is present in the DLL table,
-   but not exposed in the L511W GPD's limited paper list. Margins for Letter/A5
-   use the most likely 96-unit origin; R4 uses zero. A4 uses the GPD geometry.
-2. Compare DQT, DHT, SOF and entropy output with Windows. The DLL embeds
-   libjpeg-turbo and appears to use IJG defaults and quality 90 for network;
-   USB/plain can use 94. We use slow integer DCT, nonoptimized Huffman coding,
-   and explicitly 2×1/1×1 sampling. Exact JPEG version/rounding is not proven.
-3. Windows passes extended BGR after its own buffer production; the CUPS filter
-   passes its RGB input as RGB. The callback boundary/channel swap and optional
-   Windows gamma/sharpening/line enhancement are not reproduced or verified.
-4. PJL host/file/time metadata uses portable stand-ins, sanitized against command
-   injection. Private enhancement defaults are chosen OFF. These will not be
-   byte-identical to dynamic Windows job metadata. Quality modes currently change
-   PJL only; no unsupported claim of matching OEM image enhancement is made.
-5. Row tokens, proprietary attribute semantics, mixed-page handling, firmware
-   acceptance, copies, transport/status behavior and physical output still need
-   a golden PRN and/or printer. The local parser intentionally validates the
-   reconstruction, not these external facts.
+`tests/golden/` contains the unmodified v2 capture archive plus the original
+PNGs. `make compare-golden` checks capture SHA256 and native-mode source pixel
+hashes, creates white-backed printable-area crops, writes actual CUPS rasters,
+runs the filter for all 16 manifest jobs, strictly parses both outputs, and
+compares framing and decoded pixels. Only file-ID/timestamp are masked in PJL;
+the harness supplies the captured username, title and hostname. JPEG-dependent
+checksum/length fields are excluded from the non-image comparison and validated
+independently for both streams. Payload identity counts and whole-job PSNR are
+reported without hiding differing bands. Artifacts are in `build/golden/`.
 
-Golden captures should include RGB primary bars, grayscale ramps, partial/full
-bands, each paper/media/quality, copies, and multi-page jobs. Keep original PRNs
-and compare framing/tables before changing assumptions. Hardware-free decode
-passing is a useful regression check, **not a substitute for those captures**.
+- JPEG is standard quality-90 IJG DQT/DHT, baseline YCbCr 4:2:2 for color or
+  single-component gray for mono, with **one MCU row per restart interval**.
+  RGB input needs no channel swap. Exact band payload matches (including the
+  red 160-row first band) support these settings. Original JPEG headers/tables
+  are stripped from PRNs, so their identity is inferred from entropy equality,
+  not directly observable. The decoder inserts the matching DRI segment.
+- Draft uses the same tables/resolution as Normal/High. Draft, Heavy and
+  Postcard color payloads match the raw source encoder exactly. Normal/High
+  differ slightly in the first four color bands: the OEM's non-Draft line
+  enhancement is not implemented. The comparison reports its pixel error.
+- Mono is one-component JPEG, not color JPEG with BLACK PJL. The Windows
+  rasterization/tonal conversion differs substantially from Pillow luminance
+  and unadjusted CUPS W8. For example source gray 128 decodes near 189 in the
+  mono capture, but near 128 in color. The filter deliberately preserves CUPS
+  W8 values rather than applying an unverified calibration curve. Mono capture
+  PSNR therefore remains lower; Windows-equivalent mono is unfinished.
+- GPD `OutputOrderReversed?: TRUE` explains the two-page capture's gray-then-
+  color order despite the manifest's color-then-gray input list. The PPD
+  requests reverse order; the harness supplies raster pages in that CUPS order.
+  The filter itself streams pages in received order. Actual CUPS queue page
+  reversal on macOS remains untested.
+- Origin 96 pixels = 96/600 inch = **4.064 mm = 11.52 points**, exactly.
+  Imageable boxes preserve the observed integer-pixel printable extents:
+  A4 4768×6824 on 4960×7015, A5 3312×4768 on 3496×4960,
+  Letter 4896×6400 on 5100×6600. Opposite margins consequently need not
+  equal 96 pixels. LetterCustom uses the captured custom float-pair record.
+  R4/photo remains a static reconstruction without a supplied golden.
+- Setup copies use private attribute `ec`; EndPage copies use `31`. Mono's
+  page color selector is also 2. Media bytes are ff/dc/dd/f7/f6 for
+  Light/Matte/Heavy/Envelope/Postcard, with no PJL media setting.
+- FDATETIME is local days since 1900-01-01 plus an unpadded decimal decisecond
+  count since midnight (renderer assembly 18001614a–1800161e9). File IDs use
+  Windows FILETIME tick format; exact Windows job-ID allocation was not derived.
+  These dynamic fields are intentionally masked, not copied from captures.
+
+Printer acceptance, copies beyond the synthetic tests, transport/status,
+physical margins/output, and macOS packaging still require external validation.

@@ -1,0 +1,37 @@
+{
+  "attempts": [
+    {
+      "file": "color_a4_media-light.prn",
+      "offset": 1012,
+      "length": 37689,
+      "attempt": "raw modified band",
+      "decoded": false,
+      "error": "cannot identify image file <_io.BytesIO object at 0x000001BCA273F100>"
+    },
+    {
+      "file": "color_a4_media-light.prn",
+      "offset": 1012,
+      "length": 37689,
+      "attempt": "SOI/EOI markers restored only",
+      "decoded": false,
+      "error": "cannot identify image file <_io.BytesIO object at 0x000001BCA273F100>"
+    },
+    {
+      "file": "band_a4_media-light.prn",
+      "offset": 1011,
+      "length": 24050,
+      "attempt": "raw modified band",
+      "decoded": false,
+      "error": "cannot identify image file <_io.BytesIO object at 0x000001BCA273F100>"
+    },
+    {
+      "file": "band_a4_media-light.prn",
+      "offset": 1011,
+      "length": 24050,
+      "attempt": "SOI/EOI markers restored only",
+      "decoded": false,
+      "error": "cannot identify image file <_io.BytesIO object at 0x000001BCA273F100>"
+    }
+  ],
+  "conclusion": "Not decodable directly or by SOI/EOI restoration alone. JPEG tables/frame/SOS headers are missing; no reconstructed decoder attempted. PRN bar widths/red rows not measured. DIB identity checked separately."
+}

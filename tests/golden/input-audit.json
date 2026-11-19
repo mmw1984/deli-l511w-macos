@@ -1,0 +1,97 @@
+{
+  "original_attachments": [
+    {
+      "filename": "C:\\Users\\Administrator\\attachments\\efe779af-c5fa-49d3-a1bb-d3d3baf4088b\\a4_color_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "RGB",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "72e14afd7402682e75c66578b0ae3f19d83a73fec6477d8a2a990b95736c56bf",
+      "pixel_sha256": "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7",
+      "mode_and_pixel_sha256": "39b9d1968d6bf000324f07dd2315621ebebd43497eb46a847406e40d21809d47",
+      "rgb_bgr_sha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057"
+    },
+    {
+      "filename": "C:\\Users\\Administrator\\attachments\\39b00802-ba68-47b6-8e56-b41b3bd83821\\a4_gray_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "L",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "bcfec8f1e86c151a133a6ff927cacfd4afd01ee60e0c1571a094ba2395629d99",
+      "pixel_sha256": "27c94e6ee4d9ee8f6758de4374a1a2d5dc3d3ff5a3141a6fd200b2d337d94d85",
+      "mode_and_pixel_sha256": "5e4b33834aff90332345a058e313c1146e80488e0eee82c7e332c29153f8598d",
+      "rgb_bgr_sha256": "88a7cec4ec7d8335192883227d7b42922bbb3339f849818697d8df6a6d430c8b"
+    },
+    {
+      "filename": "C:\\Users\\Administrator\\attachments\\b9d976c8-2990-47c7-a499-9732e466b6e9\\a4_band_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "RGB",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "856d6a0a897036d41aa8cd3642652506a7912ea2645fa2db6deeab900713ede4",
+      "pixel_sha256": "c7338a49ae39cfebd6ce3db4d950155e9cce311906401184d52d41302b1ba494",
+      "mode_and_pixel_sha256": "abe54280c3c02b989ddf5f7c451fb54d67ff945b619c241ab94b67a7d8b18d58",
+      "rgb_bgr_sha256": "1bce0c8e8c8dd1930fc63d51412ed39a7329cc1b52fe5aa136e816ed91755c3a"
+    }
+  ],
+  "inputs": [
+    {
+      "filename": "C:\\work\\deliverable\\inputs\\a4_color_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "RGB",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "de4811744dd3d144353cf7024ecd22e4ef172fe69921463b92f5c3e891e1bc18",
+      "pixel_sha256": "7f2910deeb11693b9d79f78fc8fbb64a89e3c2ab45ef5b59bf8d60819548b7c7",
+      "mode_and_pixel_sha256": "39b9d1968d6bf000324f07dd2315621ebebd43497eb46a847406e40d21809d47",
+      "rgb_bgr_sha256": "49e977ca8e66cc6a396760e9923d82d0067160067426babd3967cca70e757057",
+      "expected_file_sha256": "72e14afd7402682e75c66578b0ae3f19d83a73fec6477d8a2a990b95736c56bf",
+      "matches_user_expected_file_sha256": false
+    },
+    {
+      "filename": "C:\\work\\deliverable\\inputs\\a4_gray_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "L",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "107938f3a4bbcdd55c0a771e72ad197296077cf77d97d2c6505e1bc54cdde0c9",
+      "pixel_sha256": "27c94e6ee4d9ee8f6758de4374a1a2d5dc3d3ff5a3141a6fd200b2d337d94d85",
+      "mode_and_pixel_sha256": "5e4b33834aff90332345a058e313c1146e80488e0eee82c7e332c29153f8598d",
+      "rgb_bgr_sha256": "88a7cec4ec7d8335192883227d7b42922bbb3339f849818697d8df6a6d430c8b",
+      "expected_file_sha256": "bcfec8f1e86c151a133a6ff927cacfd4afd01ee60e0c1571a094ba2395629d99",
+      "matches_user_expected_file_sha256": false
+    },
+    {
+      "filename": "C:\\work\\deliverable\\inputs\\a4_band_600.png",
+      "width": 4960,
+      "height": 7016,
+      "mode": "RGB",
+      "dpi": [
+        599.9988,
+        599.9988
+      ],
+      "sha256": "804e8eed0f3a22794f568aa3e1b8a1051d5ae9a2f4dea03f2290383aa8f08ebc",
+      "pixel_sha256": "c7338a49ae39cfebd6ce3db4d950155e9cce311906401184d52d41302b1ba494",
+      "mode_and_pixel_sha256": "abe54280c3c02b989ddf5f7c451fb54d67ff945b619c241ab94b67a7d8b18d58",
+      "rgb_bgr_sha256": "1bce0c8e8c8dd1930fc63d51412ed39a7329cc1b52fe5aa136e816ed91755c3a",
+      "expected_file_sha256": "856d6a0a897036d41aa8cd3642652506a7912ea2645fa2db6deeab900713ede4",
+      "matches_user_expected_file_sha256": false
+    }
+  ],
+  "pixel_hash_definition": "pixel_sha256=SHA256(Image.tobytes()); mode is recorded separately. mode_and_pixel_sha256=SHA256(ASCII mode + NUL + Image.tobytes())."
+}

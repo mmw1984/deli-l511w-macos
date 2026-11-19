@@ -7,6 +7,7 @@ import sys
 from PIL import Image, ImageChops, ImageStat, ImageDraw
 
 from parse_deli import InvalidStream, parse
+from derive_mono import derive
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "build/test"
@@ -37,6 +38,11 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     panels = []
     baseline = None
+    calibration = derive()
+    lut = calibration['lut']
+    assert calibration['monotonic'] and calibration['max_step'] <= 5
+    assert calibration['max_second_difference'] <= 3
+    print('PASS: empirical mono LUT monotonic, max step=5, max second difference=3')
     for mode in ("rgb", "gray"):
         data, ppm = raster(mode, 537, 2)
         options = "DeliQuality=High PageSize=A4"
@@ -47,6 +53,8 @@ def main():
         decoded = parse(result.stdout, OUT / f"decoded-{mode}")
         assert len(decoded) == 2
         with Image.open(ppm) as original:
+            if mode == 'gray':
+                original = original.point(lut)
             for image in decoded:
                 assert original.size == image.size and original.mode == image.mode
                 error = max(ImageStat.Stat(ImageChops.difference(original, image)).mean)
@@ -68,6 +76,22 @@ def main():
         assert result.returncode == 0, result.stderr.decode()
         assert parse(result.stdout, verbose=False)[0].height == height
     print("PASS: full/partial bands and row-token boundaries (11 heights)")
+
+    rgb, ppm = raster('rgb', 537)
+    with Image.open(ppm) as source:
+        channels = [channel.point(lut) for channel in source.split()]
+        expected = Image.merge('RGB', channels).convert('L')
+    for model in ('Gray', 'Mono', 'gray', 'mono'):
+        result = run(rgb, f'ColorModel={model}')
+        assert result.returncode == 0, result.stderr.decode()
+        image = parse(result.stdout, verbose=False)[0]
+        assert image.mode == 'L'
+        error = ImageStat.Stat(ImageChops.difference(expected, image)).mean[0]
+        assert error < 8, (model,error)
+    for data0 in (b'', rgb[:100], rgb[:-10]):
+        assert run(data0, 'ColorModel=Gray').returncode != 0
+    assert run(rgb, 'ColorModel=Invalid').returncode != 0
+    print('PASS: RGB24 mono LUT-before-luminance; Gray/Mono aliases; empty/truncated/invalid mode rejected')
 
     for paper in ("A4", "Letter", "A5", "Photo4x6", "LetterCustom"):
         for media in ("Auto", "Plain", "Photo", "Heavy", "Matte", "Envelope", "Postcard"):

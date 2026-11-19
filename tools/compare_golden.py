@@ -68,26 +68,26 @@ def main():
         for i, source in enumerate(job['sourceImages']):
             image = Image.open(FIX / source.split('\\')[-1])
             assert hashlib.sha256(image.tobytes()).hexdigest() == job['sourcePixelSha256'][i]
-            if gray:
-                image = image.convert('L')
-            else:
+            if not gray or image.mode != 'L':
                 image = image.convert('RGB')
             x, y = caps['PHYSICALOFFSETX'], caps['PHYSICALOFFSETY']
             canvas = Image.new(image.mode, (max(image.width,x+w), max(image.height,y+h)),
-                               255 if gray else (255,255,255))
+                               255 if image.mode == 'L' else (255,255,255))
             canvas.paste(image, (0,0))
             image = canvas.crop((x, y, x+w, y+h))
             path = OUT / f'{Path(name).stem}-{i}.raw'
             path.write_bytes(image.tobytes())
             raw.append(str(path))
         # GPD OutputOrderReversed and PPD DefaultOutputOrder: CUPS delivers last first.
-        raster = subprocess.run([str(ROOT/'build/raw_raster'), str(w), str(h), str(int(gray)), *reversed(raw)],
+        raster = subprocess.run([str(ROOT/'build/raw_raster'), str(w), str(h), str(int(image.mode == 'L')), *reversed(raw)],
                                 check=True, stdout=subprocess.PIPE).stdout
         pjl_user = re.search(rb'USERNAME="([^"]*)"', golden)[1].decode()
         host = re.search(rb'HOSTID="([^"]*)"', golden)[1].decode()
         quality = {'NORMAL':'Normal', 'HIGH':'High', 'DRAFT':'Draft'}[job['pjlPrintQuality']]
         media = {'LIGHT':'Plain','HEAVY':'Heavy','MATTE':'Matte','ENV':'Envelope','POSTCARD':'Postcard'}[job['settings']['media']]
         options = f"PageSize={job['settings']['paper']} MediaType={media} DeliQuality={quality}"
+        if gray:
+            options += ' ColorModel=Gray'
         result = subprocess.run([str(ROOT/'build/rastertodeli'), '1', pjl_user,
                                  job['settings']['job'], '1', options], input=raster,
                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE,
@@ -107,6 +107,8 @@ def main():
             squared += sum(stat.sum2)
             count += x.width*x.height*len(x.getbands())
         psnr = math.inf if squared == 0 else 10*math.log10(255**2/(squared/count))
+        if gray:
+            assert psnr >= 45, f'{name}: mono PSNR {psnr:.2f} < 45 dB'
         print(f'{name}: records=IDENTICAL tables=IJG-Q90/{"1-component" if gray else "YCbCr-422"}/DRI-row (inferred) payloads={equal}/{len(ap)} identical PSNR={psnr:.2f}dB', flush=True)
         if name == 'band_a4_media-light.prn':
             reference[0].crop((0,0,1000,512)).save(OUT/'band-golden.png')

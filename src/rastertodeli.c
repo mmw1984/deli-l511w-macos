@@ -20,6 +20,25 @@ static const Paper papers[] = {
     {"A5", "A5", 0, 0xff}, {"Photo4x6", "R4", 1, 0xdd},
     {"LetterCustom", "", 0, 0xff}
 };
+/* v2 gray ramp medians; clipped levels interpolated between measured endpoints. */
+static const unsigned char mono_lut[256] = {
+    0,1,2,4,5,6,7,8,9,9,10,11,11,12,12,12,
+    14,19,23,27,31,34,38,41,44,47,50,52,55,58,60,63,
+    65,68,70,72,74,77,79,81,83,85,87,89,91,93,94,96,
+    98,100,101,103,105,106,108,110,111,113,114,116,117,119,120,122,
+    123,125,126,127,129,130,131,133,134,135,136,138,139,140,141,142,
+    144,145,146,147,148,149,150,152,153,154,155,156,157,158,159,160,
+    161,162,163,164,165,166,167,168,169,170,171,172,172,173,174,175,
+    176,177,178,179,179,180,181,182,183,184,184,185,186,187,188,188,
+    189,190,191,192,192,193,194,195,195,196,197,197,198,199,200,200,
+    201,202,202,203,204,204,205,206,206,207,208,208,209,210,210,211,
+    212,212,213,214,214,215,215,216,217,217,218,218,219,220,220,221,
+    221,222,223,223,224,224,225,225,226,227,227,228,228,229,229,230,
+    230,231,231,232,233,233,234,234,235,235,236,236,237,237,238,238,
+    239,239,240,240,241,241,242,242,243,243,244,244,244,245,245,246,
+    246,247,247,247,247,248,248,248,248,248,248,248,248,249,249,249,
+    249,250,250,250,250,251,251,252,252,252,253,253,254,254,255,255
+};
 static volatile sig_atomic_t cancelled;
 static void cancel_job(int sig) { (void)sig; cancelled = 1; }
 static void fail(const char *s) { fprintf(stderr, "ERROR: %s\n", s); exit(1); }
@@ -221,6 +240,10 @@ int main(int argc, char **argv) {
     char *end; long copies=strtol(argv[4],&end,10);
     if (*end || copies<1 || copies>65535) fail("Invalid copy count");
     cups_option_t *opts=NULL; int count=cupsParseOptions(argv[5],0,&opts);
+    const char *model=cupsGetOption("ColorModel",count,opts);
+    int forcegray=model && (!strcmp(model,"Gray") || !strcmp(model,"Mono") ||
+                            !strcmp(model,"gray") || !strcmp(model,"mono"));
+    if (model && !forcegray && strcmp(model,"RGB")) fail("Unsupported ColorModel");
     const char *quality=cupsGetOption("DeliQuality",count,opts);
     const char *q="NORMAL";
     if (quality) {
@@ -246,7 +269,7 @@ int main(int argc, char **argv) {
     if (!ras) fail("Cannot open CUPS raster");
     cups_page_header2_t h; unsigned int pages=0; int jobgray=-1;
     while (cupsRasterReadHeader2(ras,&h)) {
-        int gray=validate(&h);
+        int inputgray=validate(&h), gray=inputgray || forcegray;
         if (jobgray!=-1 && gray!=jobgray) fail("Mixed RGB/gray jobs are not supported");
         const Paper *p=paper_for(cupsGetOption("PageSize",count,opts),&h);
         unsigned int m=override ? override : p->media;
@@ -265,7 +288,13 @@ int main(int argc, char **argv) {
                 if (cancelled) fail("Job cancelled");
                 if (cupsRasterReadPixels(ras,row,h.cupsBytesPerLine)!=h.cupsBytesPerLine)
                     fail("Truncated raster pixels");
-                memcpy(pixels+(size_t)j*stride,row,stride);
+                unsigned char *dest=pixels+(size_t)j*stride;
+                if (!gray) memcpy(dest,row,stride);
+                else for (unsigned int x=0; x<h.cupsWidth; x++) {
+                    if (inputgray) dest[x]=mono_lut[row[x]];
+                    else dest[x]=(unsigned char)((19595u*mono_lut[row[x*3]]+
+                        38470u*mono_lut[row[x*3+1]]+7471u*mono_lut[row[x*3+2]]+32768u)>>16);
+                }
             }
             band(pixels,h.cupsWidth,rows,y,gray,(int)jq); y+=rows;
         }

@@ -61,7 +61,7 @@
 *OrderDependency: 20 AnySetup *ColorModel
 *DefaultColorModel: RGB
 *ColorModel RGB/Color: "<</cupsColorSpace 1/cupsColorOrder 0/cupsBitsPerColor 8>>setpagedevice"
-*ColorModel Gray/Grayscale: "<</cupsColorSpace 0/cupsColorOrder 0/cupsBitsPerColor 8>>setpagedevice"
+*ColorModel Gray/Grayscale: "<</cupsColorSpace 1/cupsColorOrder 0/cupsBitsPerColor 8>>setpagedevice"
 *CloseUI: *ColorModel
 *OpenUI *MediaType/Media Type: PickOne
 *OrderDependency: 20 AnySetup *MediaType

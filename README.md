@@ -2,7 +2,7 @@
 
 **Windows v1.0.1.4 golden framing is validated; no printer has been tested.
 Do not use for production printing.** Color payloads mostly match exactly;
-Windows monochrome tonal conversion is not reproduced. This is not a claim of
+monochrome uses an empirically calibrated Windows tone curve. This is not a claim of
 byte-identical Windows output or firmware acceptance.
 The reference analysis is `../NOTES.md` (not required to build this repository).
 This software is based in part on the work of the Independent JPEG Group.
@@ -116,7 +116,7 @@ source PPD in `lpadmin -P`. Do not place filters in a user-writable server path.
 | CUPS option | Values | On-wire reconstruction |
 |---|---|---|
 | `PageSize` | A4, Letter, LetterCustom, A5, Photo4x6 | standard names, custom Letter float pair, OEM `R4` |
-| `ColorModel` | RGB, Gray | PPD chooses RGB24 or W8 raster; PJL CMYK/BLACK |
+| `ColorModel` | RGB, Gray (also Mono/gray/mono filter aliases) | RGB24 raster; filter converts mono after channel LUT; PJL CMYK/BLACK |
 | `DeliQuality` | Draft, Normal, High | PJL DRAFT/NORMAL/HIGH; photo forces NORMAL for Draft |
 | `MediaType` | Auto, Plain, Heavy, Photo, Matte, Envelope, Postcard | ff/dd/dc/f7/f6; Photo aliases Heavy; Auto uses photo for R4, plain otherwise |
 | copies | 1..65535 | page setup and EndPage LE16 copy count |
@@ -166,12 +166,22 @@ reported without hiding differing bands. Artifacts are in `build/golden/`.
   Postcard color payloads match the raw source encoder exactly. Normal/High
   differ slightly in the first four color bands: the OEM's non-Draft line
   enhancement is not implemented. The comparison reports its pixel error.
-- Mono is one-component JPEG, not color JPEG with BLACK PJL. The Windows
-  rasterization/tonal conversion differs substantially from Pillow luminance
-  and unadjusted CUPS W8. For example source gray 128 decodes near 189 in the
-  mono capture, but near 128 in color. The filter deliberately preserves CUPS
-  W8 values rather than applying an unverified calibration curve. Mono capture
-  PSNR therefore remains lower; Windows-equivalent mono is unfinished.
+- Mono is one-component JPEG, not color JPEG with BLACK PJL. `tools/derive_mono.py`
+  recovers a 256-entry LUT from median decoded gray-ramp samples, with flat
+  black/white anchors and linear interpolation for the seven levels clipped out
+  of the printable ramp (1–3 and 251–254). It is monotonic, maximum step 5,
+  maximum second difference 3; its toe near level16 and shoulder near224 are
+  measured features, not smoothed away. Gray128 maps to189.
+  Pure color bars disprove applying the LUT after luminance: that predicts
+  red139 instead of the observed76. The filter applies LUTs to each RGB channel,
+  then rounds BT.601 luminance with integer weights 19595/38470/7471 over65536.
+  Those weights and decimal 0.299/0.587/0.114 both exactly fit all eight bars;
+  these captures cannot discriminate their rounding for arbitrary mixed colors.
+  The PPD preserves RGB channels in Gray mode so CUPS does not prematurely
+  convert them. Already-gray W8 input goes through the LUT directly. The golden
+  comparison now enforces at least45dB for every mono job. This empirical model
+  is validated against these inputs, not an independently recovered Windows
+  color-management implementation.
 - GPD `OutputOrderReversed?: TRUE` explains the two-page capture's gray-then-
   color order despite the manifest's color-then-gray input list. The PPD
   requests reverse order; the harness supplies raster pages in that CUPS order.

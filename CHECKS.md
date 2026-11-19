@@ -1,5 +1,59 @@
 # Local verification
 
+## Empirical mono calibration
+
+Supersedes the mono limitation/results in the v2 section below.
+`python3 tools/derive_mono.py` samples the gray ramp at 61 interior rows,
+takes per-level medians, anchors black/white with flat regions, and interpolates
+the seven clipped levels. Result: monotonic, max step5, max second difference3.
+The measured eight color bars are `[76,150,29,179,105,226,0,189]`.
+Model sum-squared errors on those bars:
+
+| Weights | LUT before luminance | LUT after luminance |
+|---|---:|---:|
+| 0.299/0.587/0.114 | 0 | 14437 |
+| 0.3/0.59/0.11 | 3 | 14399 |
+| 0.2126/0.7152/0.0722 | 3258 | 11250 |
+| 77/150/29 over256 | 4 | 14586 |
+| 19595/38470/7471 over65536 | 0 | 14437 |
+
+The final integer model is used. The tied decimal BT.601 model cannot be
+discriminated by these bar samples. W8 applies the LUT directly; RGB24 Gray/Mono
+applies it to each channel before luminance. The PPD now requests RGB24 in Gray
+mode to preserve channels until that operation. Color output is unchanged.
+
+`make compare-golden` completed with all16 normalized record comparisons
+identical; the previously failing mono results are now:
+
+```text
+band_mono_a4_media-light.prn: records=IDENTICAL tables=IJG-Q90/1-component/DRI-row (inferred) payloads=27/27 identical PSNR=infdB
+color_mono_a4_media-light.prn: records=IDENTICAL tables=IJG-Q90/1-component/DRI-row (inferred) payloads=23/27 identical PSNR=80.73dB
+gray_mono_a4_media-light.prn: records=IDENTICAL tables=IJG-Q90/1-component/DRI-row (inferred) payloads=23/27 identical PSNR=79.64dB
+PASS: all 16 golden streams parsed, decoded and compared; dynamic metadata masked
+```
+
+Every mono job now has a minimum45dB assertion in the comparison test.
+Other job results are unchanged from the v2 table below. Actual `make test`:
+
+```text
+PASS: empirical mono LUT monotonic, max step=5, max second difference=3
+ROUNDTRIP rgb: 2 pages, 3 bands/page, max-channel MAE=2.645 < 8 PASS
+ROUNDTRIP gray: 2 pages, 3 bands/page, max-channel MAE=0.235 < 8 PASS
+PASS: full/partial bands and row-token boundaries (11 heights)
+PASS: RGB24 mono LUT-before-luminance; Gray/Mono aliases; empty/truncated/invalid mode rejected
+PASS: 105 paper/media/quality combinations
+PASS: PJL metadata injection sanitized
+PASS: file/stdin input; empty, truncated, unsupported raster/options/copies rejected
+PASS: every binary byte mutation rejected (except legal A4->A5); truncation/trailing/PJL corruption rejected
+ALL TESTS PASSED; visual evidence: build/test/comparison.png
+```
+
+Viewed the regenerated `build/test/comparison.png`: calibrated gray reference
+and decoded output align, as do RGB panels. The gray reference panel is after
+the intentional LUT, not the original uncalibrated ramp.
+`cupstestppd -I filters` still reports PASS with the same LetterCustom and Photo4x6
+naming warnings printed in the next section. No Mac/CUPS queue or printer test.
+
 ## v2 Windows golden validation
 
 This section supersedes the pre-golden results below. All 16 v2 PRNs parse and

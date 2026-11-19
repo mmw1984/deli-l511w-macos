@@ -51,7 +51,7 @@ macOS 不會顯示獨立的「Black & White／黑白」勾選框。
 
 ## Android
 
-在 [Release 頁](https://github.com/mmw1984/deli-l511w-macos/releases)下載已提供的 Android APK 並安裝。
+下載 [Android APK](https://github.com/mmw1984/deli-l511w-macos/releases/latest/download/Deli-L511W-Android.apk) 並安裝。
 開啟 **Deli L511W Print** → 加入打印機 IP → 啟用列印服務；之後在 App 的系統列印選單選 Deli L511W。
 未有 APK 的版本可參考 [Android 建置說明](android/README.md)。
 

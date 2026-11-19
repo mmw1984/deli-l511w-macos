@@ -1,4 +1,4 @@
-name: Release universal macOS package
+name: Release macOS and Android drivers
 on:
   push:
     tags:
@@ -8,7 +8,7 @@ permissions:
   contents: write
 
 jobs:
-  release:
+  macos:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,11 +34,53 @@ jobs:
             codesign --verify --strict "build/pkg/root/Library/Printers/Deli/filter/$filter"
           done
           pkgutil --payload-files dist/Deli-L511W-universal.pkg
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-macos
+          path: dist/*.pkg
+          if-no-files-found: error
+
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Install Android SDK and native toolchain
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0' 'ndk;27.2.12479018' 'cmake;3.22.1'
+      - name: Build installable debug APK
+        working-directory: android
+        run: ./gradlew --no-daemon assembleDebug
+      - name: Prepare Android release asset
+        run: |
+          mkdir -p dist
+          cp android/app/build/outputs/apk/debug/app-debug.apk dist/Deli-L511W-Android.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-android
+          path: dist/Deli-L511W-Android.apk
+          if-no-files-found: error
+
+  publish:
+    needs: [macos, android]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: release-*
+          merge-multiple: true
+          path: dist
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
           fail_on_unmatched_files: true
-          files: dist/*.pkg
+          files: |
+            dist/*.pkg
+            dist/Deli-L511W-Android.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

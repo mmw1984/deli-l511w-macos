@@ -105,21 +105,33 @@
 *CloseUI: *DeliPass2Order
 *APPrinterPreset BlackAndWhite/Black & White: "
   *ColorModel Gray
+  com.apple.print.preset.graphicsType General
+  com.apple.print.preset.media-front-coating none
   com.apple.print.preset.output-mode monochrome
   com.apple.print.preset.quality mid"
 *End
 *APPrinterPreset Color/Color: "
   *ColorModel RGB
+  com.apple.print.preset.graphicsType General
+  com.apple.print.preset.media-front-coating none
   com.apple.print.preset.output-mode color
   com.apple.print.preset.quality mid"
 *End
 *APPrinterPreset ManualDuplexOdd/Manual Duplex - Pass 1: "
   *DeliDuplex Odd
-  *DeliPass2Order Auto"
+  *DeliPass2Order Auto
+  com.apple.print.preset.graphicsType General
+  com.apple.print.preset.media-front-coating none
+  com.apple.print.preset.output-mode color
+  com.apple.print.preset.quality mid"
 *End
 *APPrinterPreset ManualDuplexEven/Manual Duplex - Pass 2: "
   *DeliDuplex Even
-  *DeliPass2Order Auto"
+  *DeliPass2Order Auto
+  com.apple.print.preset.graphicsType General
+  com.apple.print.preset.media-front-coating none
+  com.apple.print.preset.output-mode color
+  com.apple.print.preset.quality mid"
 *End
 *zh_TW.Translation DeliRendering/文字清晰度 Rendering: ""
 *zh_TW.Translation ColorModel/色彩模式 Color Mode: ""

@@ -8,7 +8,10 @@ fi
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 WORK="$ROOT/build/pkg"
 DIST="$ROOT/dist"
-VERSION=0.1.0
+VERSION=${VERSION:-0.1.0}
+case "$VERSION" in
+    *[!0-9A-Za-z.+-]* ) echo 'Invalid package version' >&2; exit 1 ;;
+esac
 JPEG_VERSION=3.0.4
 JPEG_SHA=0270f9496ad6d69e743f1e7b9e3e9398f5b4d606b6a47744df4b73df50f62e38
 mkdir -p "$WORK" "$DIST"
@@ -65,6 +68,10 @@ install -m 644 "$WORK/libjpeg-turbo-$JPEG_VERSION/LICENSE.md" \
 install -m 644 "$WORK/libjpeg-turbo-$JPEG_VERSION/README.ijg" \
     "$STAGE/Library/Printers/Deli/libjpeg-turbo-README.ijg"
 install -m 644 "$ROOT/README.md" "$STAGE/Library/Printers/Deli/README.md"
+mkdir -p "$STAGE/Library/Printers/Deli/docs"
+for DOC in TECHNICAL.md CHECKS.md LANGUAGE-MONITOR.md; do
+    install -m 644 "$ROOT/docs/$DOC" "$STAGE/Library/Printers/Deli/docs/$DOC"
+done
 if command -v cupstestppd >/dev/null 2>&1; then
     # Staging is user-owned; pkgbuild assigns root ownership on installation.
     test -x "$FILTER/rastertodeli"
@@ -76,4 +83,5 @@ otool -L "$FILTER/pdftodeli"
 pkgbuild --root "$STAGE" --identifier org.openprinting.experimental.deli-l511w \
     --version "$VERSION" --install-location / --ownership recommended \
     "$DIST/Deli-L511W-$VERSION-universal.pkg"
+cp "$DIST/Deli-L511W-$VERSION-universal.pkg" "$DIST/Deli-L511W-universal.pkg"
 echo "Built $DIST/Deli-L511W-$VERSION-universal.pkg (unsigned installer, ad-hoc signed filter)"

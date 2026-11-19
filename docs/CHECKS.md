@@ -1,5 +1,7 @@
 # Local verification
 
+Commands and generated `build/` paths below are relative to the repository root.
+
 ## Empirical mono calibration
 
 Supersedes the mono limitation/results in the v2 section below.
@@ -85,7 +87,7 @@ PASS: all 16 golden streams parsed, decoded and compared; dynamic metadata maske
 
 The comparison passing means framing/parse invariants hold, **not pixel identity**.
 Mono tonal conversion remains unmatched; Normal/High color differs slightly from
-Draft due to omitted OEM enhancement. See README for examples and limitations.
+Draft due to omitted OEM enhancement. See [TECHNICAL.md](TECHNICAL.md) for examples and limitations.
 The source list is reversed before raster creation, matching GPD
 `OutputOrderReversed?: TRUE` and the PPD default. This queue behavior has not
 been exercised on macOS. Letter crops extend beyond the source width and use
@@ -173,7 +175,7 @@ During development, libcups rejected padded synthetic scanlines; fixtures now
 use valid exact raster strides. A separate probe found a retained libcups input
 limitation: a partial next-page header following a complete page is interpreted
 as EOF, and the filter returns success for the complete preceding pages. This
-is documented in README, not covered up by the truncation test (which checks
+is documented in TECHNICAL.md, not covered up by the truncation test (which checks
 an initial short header and truncated pixels).
 
 **Not checked here:** macOS compile/universal link/pkgbuild, installed macOS

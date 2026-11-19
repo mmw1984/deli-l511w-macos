@@ -39,6 +39,7 @@ build/make_raster: tools/make_raster.c | build
 test: all build/test_page_plan
 	./build/test_page_plan
 	python3 tools/test_page_options.py
+	python3 tools/test_pdf.py
 	python3 tools/test_roundtrip.py
 
 build/raw_raster: tools/raw_raster.c | build

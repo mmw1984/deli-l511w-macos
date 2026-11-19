@@ -53,7 +53,8 @@ static void render(CGPDFPageRef page, unsigned char *bitmap, unsigned int w,
     CGContextSetShouldSmoothFonts(ctx,false);
     CGContextSetInterpolationQuality(ctx,kCGInterpolationHigh);
     if (page) {
-        CGRect box=CGPDFPageGetBoxRect(page,kCGPDFCropBox);
+        CGRect box=CGRectIntersection(CGPDFPageGetBoxRect(page,kCGPDFCropBox),
+                                     CGPDFPageGetBoxRect(page,kCGPDFMediaBox));
         int angle=CGPDFPageGetRotationAngle(page)%180;
         double bw=angle ? box.size.height : box.size.width;
         double bh=angle ? box.size.width : box.size.height;
@@ -64,8 +65,12 @@ static void render(CGPDFPageRef page, unsigned char *bitmap, unsigned int w,
         CGRect target=CGRectMake(0,0,w,h);
         if (fabs(rw-target_w)<1 && fabs(rh-target_h)<1)
             target=CGRectMake(-(double)offset,-((double)ph-offset-h),pw,ph);
+        double scale=fmin(target.size.width/rw,target.size.height/rh);
+        CGContextTranslateCTM(ctx,target.origin.x+(target.size.width-rw*scale)/2,
+                              target.origin.y+(target.size.height-rh*scale)/2);
+        CGContextScaleCTM(ctx,scale,scale);
         CGAffineTransform transform=CGPDFPageGetDrawingTransform(page,kCGPDFCropBox,
-            target,rotate,true);
+            CGRectMake(0,0,rw,rh),rotate,true);
         CGContextConcatCTM(ctx,transform);
         CGContextDrawPDFPage(ctx,page);
     }

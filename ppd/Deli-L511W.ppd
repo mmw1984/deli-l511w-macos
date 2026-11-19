@@ -85,8 +85,8 @@
 *CloseUI: *DeliQuality
 *OpenUI *DeliRendering/Rendering: PickOne
 *OrderDependency: 20 AnySetup *DeliRendering
-*DefaultDeliRendering: Crisp
-*DeliRendering Crisp/Crisp (no antialiasing): ""
+*DefaultDeliRendering: Smooth
+*DeliRendering Crisp/Crisp (not recommended): ""
 *DeliRendering Smooth/Smooth: ""
 *CloseUI: *DeliRendering
 *OpenUI *DeliDuplex/Manual Duplex: PickOne
@@ -157,7 +157,7 @@
 *zh_TW.PageSize Photo4x6/相片 Photo 4x6: ""
 *zh_TW.Translation Resolution/解像度 Resolution: ""
 *zh_TW.Resolution 600dpi/600 dpi: ""
-*zh_TW.DeliRendering Crisp/清晰 Crisp（不作反鋸齒）: ""
+*zh_TW.DeliRendering Crisp/清晰 Crisp（不建議）: ""
 *zh_TW.DeliRendering Smooth/平滑 Smooth: ""
 *zh_TW.Translation DeliDuplex/手動雙面 Manual Duplex: ""
 *zh_TW.DeliDuplex Off/關閉 Off: ""

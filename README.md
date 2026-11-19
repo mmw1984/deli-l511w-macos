@@ -46,7 +46,7 @@ macOS 不會顯示獨立的「Black & White／黑白」勾選框。
 
 ## 文字清晰度
 
-「文字清晰度 Rendering」預設 **Crisp**，適合文字；想邊緣平滑可選 **Smooth**。
+「文字清晰度 Rendering」預設及建議用 **Smooth**；**Crisp（不建議）** 可能令邊緣出現鋸齒及雜訊。
 此選項只影響直接 PDF 列印，不能修復原本已模糊的掃描圖。
 
 ## Android

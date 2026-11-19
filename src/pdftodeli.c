@@ -82,7 +82,7 @@ int main(int argc, char **argv) {
     const char *rendering=cupsGetOption("DeliRendering",o.count,o.opts);
     if (rendering && strcmp(rendering,"Crisp") && strcmp(rendering,"Smooth"))
         fail("Unsupported DeliRendering");
-    int smooth=rendering && !strcmp(rendering,"Smooth");
+    int smooth=!rendering || !strcmp(rendering,"Smooth");
     const char *resolution=cupsGetOption("Resolution",o.count,o.opts);
     if (resolution && strcmp(resolution,"600dpi")) fail("Require 600dpi");
     const char *sides=cupsGetOption("sides",o.count,o.opts);

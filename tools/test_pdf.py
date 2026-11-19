@@ -48,6 +48,15 @@ def main():
         bounds = mask.getbbox()
         assert bounds and all(abs(a-b) <= 2 for a, b in zip(bounds, (504, 886, 1104, 1086))), bounds
         image.save(OUT / f'pdf-{rendering}.png')
+    diagonal = document(b'0 G 0.7 w 72.12 700.12 m 144.65 723.73 l S')
+    variants = []
+    for options in ('', 'DeliRendering=Smooth', 'DeliRendering=Crisp'):
+        result = run(diagonal, options)
+        assert result.returncode == 0, result.stderr
+        image, = parse(result.stdout, verbose=False)
+        variants.append(image.tobytes())
+    assert variants[0] == variants[1] and variants[0] != variants[2]
+    print('PASS: absent Rendering matches Smooth and differs from Crisp on diagonal edges')
     blank = run(document(b''))
     assert blank.returncode == 0, blank.stderr
     image, = parse(blank.stdout, verbose=False)

@@ -1,5 +1,7 @@
 #include "deli.h"
+#ifndef DELI_EMBEDDED
 #include <cups/raster.h>
+#endif
 #include <errno.h>
 #include <fcntl.h>
 #include <limits.h>
@@ -40,8 +42,20 @@ static const unsigned char mono_lut[256] = {
 };
 static volatile sig_atomic_t cancelled;
 void deli_check_cancel(void) { if (cancelled) fail("Job cancelled"); }
+#ifdef DELI_EMBEDDED
+static _Thread_local FILE *deli_output;
+static _Thread_local void (*deli_error_handler)(const char *);
+#define DELI_OUTPUT deli_output
+#else
+#define DELI_OUTPUT stdout
 static void cancel_job(int sig) { (void)sig; cancelled = 1; }
-void fail(const char *s) { fprintf(stderr, "ERROR: %s\n", s); exit(1); }
+#endif
+void fail(const char *s) {
+#ifdef DELI_EMBEDDED
+    if (deli_error_handler) deli_error_handler(s);
+#endif
+    fprintf(stderr, "ERROR: %s\n", s); exit(1);
+}
 static void put(Record *r, unsigned int x) {
     if (r->n == sizeof(r->data)) fail("Record overflow");
     r->data[r->n++] = (unsigned char)x;
@@ -61,7 +75,7 @@ static void hex(Record *r, const char *s) {
 }
 static void out(const void *p, size_t n) {
     if (cancelled) fail("Job cancelled");
-    if (fwrite(p,1,n,stdout) != n) fail("Cannot write print stream");
+    if (fwrite(p,1,n,DELI_OUTPUT) != n) fail("Cannot write print stream");
 }
 static void emit(Record *r) { out(r->data,r->n); }
 static void text(const char *s) { out(s,strlen(s)); }
@@ -83,7 +97,11 @@ static void quoted(const char *prefix, const char *s) {
 }
 void job_start(const char *user, const char *title, const char *quality, int gray) {
     char id[80], date[80]; struct timespec stamp;
+#ifdef __ANDROID__
+    if (clock_gettime(CLOCK_REALTIME,&stamp)) fail("Cannot read job time");
+#else
     if (timespec_get(&stamp,TIME_UTC)!=TIME_UTC) fail("Cannot read job time");
+#endif
     time_t now=stamp.tv_sec;
     struct tm local; if (!localtime_r(&now,&local)) fail("Cannot convert job time");
     unsigned int days=(unsigned int)local.tm_yday;
@@ -209,6 +227,7 @@ void band(unsigned char *pixels, unsigned int w, unsigned int h, unsigned int y,
     if (r.n!=29) fail("Invalid EndImage size");
     emit(&r); free(jpeg);
 }
+#ifndef DELI_EMBEDDED
 const Paper *paper_for(const char *name, const cups_page_header2_t *h) {
     if (name) {
         for (size_t i=0;i<sizeof(papers)/sizeof(*papers);i++)
@@ -301,6 +320,7 @@ DeliOptions deli_options(int argc, char **argv) {
     return (DeliOptions){opts,count,(unsigned int)copies,forcegray,q,override,paper};
 }
 
+#endif
 void deli_mono(unsigned char *dest, const unsigned char *src, unsigned int width, int inputgray) {
     for (unsigned int x=0;x<width;x++) {
         if (inputgray) dest[x]=mono_lut[src[x]];
@@ -313,7 +333,7 @@ void deli_page_end(unsigned int copies) {
 }
 void deli_job_end(void) {
     text("\x49\x42\033%-12345X@PJL EOJ\n@PJL LPORTROTATE\n\033%-12345X");
-    if (fflush(stdout) || ferror(stdout)) fail("Output write failed");
+    if (fflush(DELI_OUTPUT) || ferror(DELI_OUTPUT)) fail("Output write failed");
 }
 void deli_geometry(const Paper *p, unsigned int *w, unsigned int *h,
                    unsigned int *pw, unsigned int *ph) {
@@ -322,6 +342,7 @@ void deli_geometry(const Paper *p, unsigned int *w, unsigned int *h,
     else if (!strcmp(p->option,"Photo4x6")) { *w=*pw=2416; *h=*ph=3590; }
     else { *w=4896; *h=6400; *pw=5100; *ph=6600; }
 }
+#ifndef DELI_EMBEDDED
 DeliPlan deli_plan(unsigned int total, const DeliOptions *o, int default_reverse) {
     const char *order=cupsGetOption("outputorder",o->count,o->opts);
     if (!order) order=cupsGetOption("OutputOrder",o->count,o->opts);
@@ -338,3 +359,4 @@ DeliPlan deli_plan(unsigned int total, const DeliOptions *o, int default_reverse
         cupsGetOption("DeliPass2Order",o->count,o->opts),default_reverse,&plan,error,sizeof(error))) fail(error);
     return plan;
 }
+#endif

@@ -49,6 +49,12 @@ sudo installer -pkg ~/Downloads/Deli-L511W-universal.pkg -target /
 「文字清晰度 Rendering」預設 **Crisp**，適合文字；想邊緣平滑可選 **Smooth**。
 此選項只影響直接 PDF 列印，不能修復原本已模糊的掃描圖。
 
+## Android
+
+在 [Release 頁](https://github.com/mmw1984/deli-l511w-macos/releases)下載已提供的 Android APK 並安裝。
+開啟 **Deli L511W Print** → 加入打印機 IP → 啟用列印服務；之後在 App 的系統列印選單選 Deli L511W。
+未有 APK 的版本可參考 [Android 建置說明](android/README.md)。
+
 ## 解除安裝
 
 先在「系統設定 → 打印機與掃描器」刪除使用此驅動的打印機，再執行：

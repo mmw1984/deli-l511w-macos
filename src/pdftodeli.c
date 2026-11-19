@@ -1,4 +1,5 @@
 #include "deli.h"
+#include "resample.h"
 #include <ApplicationServices/ApplicationServices.h>
 #include <limits.h>
 #include <math.h>
@@ -38,15 +39,17 @@ static CGPDFDocumentRef open_pdf(int argc, char **argv) {
 
 static void render(CGPDFPageRef page, unsigned char *bitmap, unsigned int w,
                    unsigned int h, unsigned int pw, unsigned int ph, int smooth,
-                   unsigned int offset) {
+                   unsigned int offset, unsigned int y, unsigned int rows, unsigned int factor) {
     CGColorSpaceRef space=CGColorSpaceCreateWithName(kCGColorSpaceSRGB);
     if (!space) fail("Cannot create RGB color space");
-    CGContextRef ctx=CGBitmapContextCreate(bitmap,w,h,8,(size_t)w*4,space,
+    CGContextRef ctx=CGBitmapContextCreate(bitmap,w*factor,rows*factor,8,(size_t)w*factor*4,space,
         kCGBitmapByteOrder32Big | kCGImageAlphaNoneSkipLast);
     CGColorSpaceRelease(space);
     if (!ctx) fail("Cannot create PDF bitmap context");
     CGContextSetRGBFillColor(ctx,1,1,1,1);
-    CGContextFillRect(ctx,CGRectMake(0,0,w,h));
+    CGContextFillRect(ctx,CGRectMake(0,0,w*factor,rows*factor));
+    CGContextScaleCTM(ctx,factor,factor);
+    CGContextTranslateCTM(ctx,0,-(double)(h-y-rows));
     CGContextSetShouldAntialias(ctx,smooth);
     CGContextSetAllowsAntialiasing(ctx,smooth);
     CGContextSetAllowsFontSmoothing(ctx,false);
@@ -80,9 +83,10 @@ static void render(CGPDFPageRef page, unsigned char *bitmap, unsigned int w,
 int main(int argc, char **argv) {
     DeliOptions o=deli_options(argc,argv);
     const char *rendering=cupsGetOption("DeliRendering",o.count,o.opts);
-    if (rendering && strcmp(rendering,"Crisp") && strcmp(rendering,"Smooth"))
+    if (rendering && strcmp(rendering,"Crisp") && strcmp(rendering,"Smooth") && strcmp(rendering,"HighQuality"))
         fail("Unsupported DeliRendering");
-    int smooth=!rendering || !strcmp(rendering,"Smooth");
+    int smooth=!rendering || strcmp(rendering,"Crisp");
+    unsigned int factor=rendering && !strcmp(rendering,"HighQuality") ? 4 : 1;
     const char *resolution=cupsGetOption("Resolution",o.count,o.opts);
     if (resolution && strcmp(resolution,"600dpi")) fail("Require 600dpi");
     const char *sides=cupsGetOption("sides",o.count,o.opts);
@@ -98,9 +102,12 @@ int main(int argc, char **argv) {
         free(plan.pages); CGPDFDocumentRelease(pdf); cupsFreeOptions(o.count,o.opts);
         return 0;
     }
-    unsigned char *bitmap=malloc((size_t)w*h*4), *rgb=malloc((size_t)w*3);
+    unsigned int tile_rows=factor>1 ? 32 : 256;
+    unsigned char *bitmap=malloc((size_t)w*4*(factor>1 ? tile_rows*factor*factor : h));
+    unsigned char *rgb=malloc((size_t)w*3);
+    unsigned char *reduced=factor>1 ? malloc((size_t)w*256*4) : NULL;
     unsigned char *pixels=malloc((size_t)w*256*(o.forcegray ? 1u : 3u));
-    if (!bitmap || !pixels || !rgb) fail("Out of memory");
+    if (!bitmap || !pixels || !rgb || (factor>1 && !reduced)) fail("Out of memory");
     unsigned int media=o.media ? o.media : paper->media;
     if (plan.count) job_start(argv[2],argv[3],media==0xdd && !strcmp(o.quality,"DRAFT") ?
                              "NORMAL" : o.quality,o.forcegray);
@@ -108,13 +115,23 @@ int main(int argc, char **argv) {
         deli_check_cancel();
         CGPDFPageRef page=plan.pages[i] ? CGPDFDocumentGetPage(pdf,plan.pages[i]) : NULL;
         if (plan.pages[i] && !page) fail("Cannot load PDF page");
-        render(page,bitmap,w,h,pw,ph,smooth,paper->border ? 0 : 96);
+        if (factor==1) render(page,bitmap,w,h,pw,ph,smooth,paper->border ? 0 : 96,0,h,1);
         page_start(paper,media,90,o.forcegray,o.copies);
         size_t stride=(size_t)w*(o.forcegray ? 1u : 3u);
         for (unsigned int y=0;y<h;) {
             unsigned int rows=h-y; if (rows>256) rows=256;
+            for (unsigned int first=0;factor>1 && first<rows;) {
+                deli_check_cancel();
+                unsigned int count=rows-first; if (count>tile_rows) count=tile_rows;
+                render(page,bitmap,w,h,pw,ph,smooth,paper->border ? 0 : 96,y+first,count,factor);
+                if (!deli_downsample(bitmap,w,count*factor,factor,0,count,DELI_BOX,
+                                    reduced+(size_t)first*w*4))
+                    fail("Cannot downsample PDF band");
+                first+=count;
+            }
+            const unsigned char *rendered=factor>1 ? reduced : bitmap+(size_t)y*w*4;
             for (unsigned int j=0;j<rows;j++) {
-                const unsigned char *src=bitmap+(size_t)(y+j)*w*4;
+                const unsigned char *src=rendered+(size_t)j*w*4;
                 for (unsigned int x=0;x<w;x++) memcpy(rgb+x*3,src+x*4,3);
                 unsigned char *dest=pixels+j*stride;
                 if (o.forcegray) deli_mono(dest,rgb,w,0);
@@ -125,7 +142,7 @@ int main(int argc, char **argv) {
         deli_page_end(o.copies); fprintf(stderr,"PAGE: %zu %u\n",i+1,o.copies);
     }
     if (plan.count) deli_job_end();
-    free(bitmap); free(rgb); free(pixels); free(plan.pages);
+    free(bitmap); free(reduced); free(rgb); free(pixels); free(plan.pages);
     CGPDFDocumentRelease(pdf); cupsFreeOptions(o.count,o.opts);
     return 0;
 }

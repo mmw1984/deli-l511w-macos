@@ -86,10 +86,11 @@ that case. The output parser does reject all truncated output records.
 
 ### 文字清晰度 / Rendering
 
-預設 **Crisp（清晰）**：CoreGraphics 直接以 600 dpi 畫 PDF，關閉文字／線條反鋸齒及
-字型平滑，影像仍用高品質插值。**Smooth（平滑）**會開啟反鋸齒，但不開啟子像素字型平滑。
-這是針對可能的 macOS 灰階邊緣問題；模糊的真正成因尚未用相同文件作硬件 A/B 測試。
-如果原始 PDF 本身只有低解像度掃描圖，Crisp 無法補回不存在的細節。
+預設及建議 **Smooth（平滑）**：CoreGraphics 以 600 dpi 畫 PDF，開啟反鋸齒，
+但不開啟子像素字型平滑。**Crisp（不建議）**關閉反鋸齒，實機回報鋸齒及雜訊反而較明顯。
+實驗性 **HighQuality（高質平滑）**以 2400 dpi 畫小條帶，再用共享 C 的 4×4 面積平均縮至
+600 dpi；保留原有 JPEG 參數。合成測試不能證明優於原生 Smooth，故不改預設；見 [AA study](AA-STUDY.md)。
+如果原始 PDF 本身只有低解像度掃描圖，超採樣無法補回不存在的細節。
 Rendering 選項只影響直接 PDF 路徑，不能去除已經在 raster 內的灰階邊緣。
 
 PDF 同尺寸頁面按實際紙張大小畫，裁出與 Windows golden 相同的可列印範圍：
@@ -97,7 +98,9 @@ A4 4768×6824、Letter 4896×6400、A5 3312×4768，左／頂偏移 96 px。
 Photo4x6 為 2416×3590、無邊框。其他 PDF 頁面尺寸會等比例縮放、置中至可列印範圍，
 橫向頁面自動旋轉至適合所選紙張；保留 PDF 自帶旋轉及裁切框。
 內部用每分量 8-bit、32-bit RGBX bitmap（CoreGraphics 支援的格式），送編碼器前轉 RGB24。
-一頁 RGBX 約需 130 MB（A4），stdin PDF 及 raster 暫存使用安全臨時檔；raster 會先數完頁數。
+輸出每帶 256 行；HighQuality 每次只畫 32 個輸出行（128 個高解像行，A4 約 9.8 MB RGBX），
+再拼回編碼帶，無須全頁 2400 dpi bitmap。面積濾波無跨輸出行支援，故不需額外邊界行。
+stdin PDF 及 raster 暫存使用安全臨時檔；raster 會先數完頁數。
 
 仍然使用 **Q90、4:2:2 JPEG**：彩色細字（尤其紅／藍字）可能受色度水平降採樣影響。
 golden 的 JPEG 頭／取樣因子已被剝除，現有記錄沒有已證實的取樣切換欄位；不能只改成

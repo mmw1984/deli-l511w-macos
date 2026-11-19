@@ -10,8 +10,19 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      - name: Install build tool
-        run: brew list cmake >/dev/null 2>&1 || brew install cmake
+      - name: Install build and test dependencies
+        run: brew install cmake pkgconf jpeg-turbo python
+      - name: Run tests including native PDF rendering
+        run: |
+          python3 -m venv build/venv
+          build/venv/bin/python -m pip install Pillow
+          export PATH="$PWD/build/venv/bin:$PATH"
+          make test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: PDF-render-tests
+          path: build/test/pdf-*.png
+          if-no-files-found: error
       - name: Build arm64 and x86_64 filter and package
         run: sh scripts/build-pkg.sh
       - name: Verify architecture and code signature

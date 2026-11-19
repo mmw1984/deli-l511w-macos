@@ -9,4 +9,5 @@ object NativeEncoder {
     external fun finish(handle: Long)
     external fun close(handle: Long)
     external fun plan(total: Int, ranges: String?, duplex: String, pass2: String): IntArray
+    external fun downsample(pixels: IntArray, width: Int, height: Int, scale: Int, top: Int, rows: Int): IntArray
 }

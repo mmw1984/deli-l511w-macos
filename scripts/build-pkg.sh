@@ -45,7 +45,7 @@ for ARCH in arm64 x86_64; do
         "$PREFIX/lib/libjpeg.a" -lcups -o "$WORK/$ARCH/rastertodeli"
     "$CLANG" -std=c11 -Wall -Wextra -Wpedantic -O2 -D_POSIX_C_SOURCE=200809L -D_DARWIN_C_SOURCE \
         -arch "$ARCH" -isysroot "$SDK" -mmacosx-version-min=11.0 \
-        -I"$PREFIX/include" "$ROOT/src/pdftodeli.c" "$ROOT/src/deli.c" "$ROOT/src/page_plan.c" \
+        -I"$PREFIX/include" "$ROOT/src/pdftodeli.c" "$ROOT/src/resample.c" "$ROOT/src/deli.c" "$ROOT/src/page_plan.c" \
         "$PREFIX/lib/libjpeg.a" -lcups -framework ApplicationServices -o "$WORK/$ARCH/pdftodeli"
 done
 STAGE="$WORK/root"

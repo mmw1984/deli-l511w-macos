@@ -50,6 +50,15 @@ Android PdfRenderer offers no public antialias switch on minSdk 26.
 The advanced-options UI explicitly says so. Source scans/colored text may remain
 soft. Photo4x6 uses the reconstructed R4 geometry, not a physical acceptance test.
 
+Smooth remains the default. The experimental **HighQuality / 高質平滑** option
+renders at 2400 dpi in 32-output-row tiles, then uses `src/resample.c` through JNI
+for exact 4×4 area averaging to 600 dpi. Tiles assemble into the same 256-row JPEG
+bands. The box kernel needs no halo rows and does not introduce sharpening or
+gamma changes. A4's temporary high-resolution bitmap is about 9.8 MB, plus Java
+pixel arrays and possible JNI copies; memory does not scale with page height.
+Instrumentation compares all tiled pixels with a full supersampled reference
+and checks blank/invalid JNI input. See [AA study](../docs/AA-STUDY.md) for limits.
+
 `cpp/bridge.c` includes the existing `src/deli.c` with `DELI_EMBEDDED`; CUPS-only
 options are omitted, while PJL, framing, mono LUT, JPEG and geometry are shared.
 The only shared-source changes are conditional output/error hooks and Android's

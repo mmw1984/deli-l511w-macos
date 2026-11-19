@@ -1,5 +1,6 @@
 #include <jni.h>
 #include "deli.c"
+#include "resample.h"
 
 typedef struct {
     FILE *file;
@@ -117,4 +118,25 @@ JNIEXPORT jintArray JNICALL Java_com_deli_print_NativeEncoder_plan(JNIEnv *env,j
     jintArray result=(*env)->NewIntArray(env,(jsize)plan.count);
     if (result) (*env)->SetIntArrayRegion(env,result,0,(jsize)plan.count,(const jint *)plan.pages);
     free(plan.pages); return result;
+}
+JNIEXPORT jintArray JNICALL Java_com_deli_print_NativeEncoder_downsample(JNIEnv *env,jobject self,
+        jintArray pixels,jint width,jint height,jint scale,jint top,jint rows) {
+    (void)self; GUARD(NULL);
+    if (!pixels || width<1 || width>65535 || height<1 || height>65535 || rows<1 ||
+        (scale!=2 && scale!=4) || top<0 || height%scale || top>height/scale ||
+        rows>height/scale-top || (jlong)width*height*scale>INT_MAX ||
+        (*env)->GetArrayLength(env,pixels)!=(jlong)width*height*scale)
+        fail("Invalid supersampled band");
+    jintArray result=(*env)->NewIntArray(env,width*rows);
+    if (!result) return NULL;
+    jint *input=(*env)->GetIntArrayElements(env,pixels,NULL);
+    if (!input) return NULL;
+    jint *output=(*env)->GetIntArrayElements(env,result,NULL);
+    if (!output) { (*env)->ReleaseIntArrayElements(env,pixels,input,JNI_ABORT); return NULL; }
+    int ok=deli_downsample((const unsigned char *)input,(unsigned int)width,(unsigned int)height,
+        (unsigned int)scale,(unsigned int)top,(unsigned int)rows,DELI_BOX,(unsigned char *)output);
+    (*env)->ReleaseIntArrayElements(env,pixels,input,JNI_ABORT);
+    (*env)->ReleaseIntArrayElements(env,result,output,0);
+    if (!ok) fail("Cannot downsample PDF band");
+    return result;
 }

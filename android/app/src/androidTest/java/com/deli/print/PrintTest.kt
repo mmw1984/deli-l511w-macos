@@ -12,6 +12,45 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class PrintTest {
+    @Test fun qualityStrips() {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val file = java.io.File.createTempFile("quality", ".pdf", context.cacheDir)
+        try {
+            val pdf = android.graphics.pdf.PdfDocument()
+            try {
+                val page = pdf.startPage(android.graphics.pdf.PdfDocument.PageInfo.Builder(72, 72, 1).create())
+                val paint = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG)
+                paint.color = android.graphics.Color.BLUE
+                page.canvas.drawRect(2f, 3f, 67f, 15f, paint)
+                paint.color = android.graphics.Color.RED; paint.strokeWidth = 0.35f
+                page.canvas.drawLine(0f, 0f, 72f, 72f, paint)
+                paint.color = android.graphics.Color.BLACK; paint.textSize = 12f
+                page.canvas.drawText("Aa", 10f, 45f, paint)
+                pdf.finishPage(page)
+                file.outputStream().use { pdf.writeTo(it) }
+            } finally { pdf.close() }
+            android.graphics.pdf.PdfRenderer(android.os.ParcelFileDescriptor.open(file, android.os.ParcelFileDescriptor.MODE_READ_ONLY)).use { renderer ->
+                renderer.openPage(0).use { page ->
+                    val geometry = Geometry("test", 128, 320, 128, 320, 0)
+                    val bitmap = android.graphics.Bitmap.createBitmap(512, 1280, android.graphics.Bitmap.Config.ARGB_8888)
+                    try {
+                        bitmap.eraseColor(android.graphics.Color.WHITE)
+                        page.render(bitmap, null, transform(page.width, page.height, geometry, 0).apply { postScale(4f, 4f) }, android.graphics.pdf.PdfRenderer.Page.RENDER_MODE_FOR_PRINT)
+                        val pixels = IntArray(512 * 1280)
+                        bitmap.getPixels(pixels, 0, 512, 0, 0, 512, 1280)
+                        val expected = NativeEncoder.downsample(pixels, 128, 1280, 4, 0, 320)
+                        val tiled = renderBand(page, geometry, 0, 256, true) + renderBand(page, geometry, 256, 64, true)
+                        assertArrayEquals(expected, tiled)
+                        assertTrue(tiled.any { it != android.graphics.Color.WHITE })
+                        assertFalse(tiled.contentEquals(renderBand(page, geometry, 0, 320, false)))
+                    } finally { bitmap.recycle() }
+                }
+            }
+            assertArrayEquals(intArrayOf(0xff123456.toInt()), NativeEncoder.downsample(IntArray(16) { 0xff123456.toInt() }, 1, 4, 4, 0, 1))
+            try { NativeEncoder.downsample(intArrayOf(), 1, 4, 4, 0, 1); fail("Empty band accepted") } catch (_: java.io.IOException) {}
+            try { NativeEncoder.downsample(IntArray(16), 1, 4, 3, 0, 1); fail("Bad scale accepted") } catch (_: java.io.IOException) {}
+        } finally { file.delete() }
+    }
     @Test fun planner() {
         for (n in 1..7) for (mode in listOf("Odd", "Even")) for (order in listOf("Auto", "Reverse", "Normal")) {
             val expected = (0 until (n + 1) / 2).map { val p = it * 2 + if (mode == "Odd") 1 else 2; if (p > n) 0 else p }.let { if (mode == "Odd" || order != "Normal") it.reversed() else it }

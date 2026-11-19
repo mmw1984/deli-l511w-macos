@@ -26,8 +26,8 @@ build/rastertodeli: src/rastertodeli.c $(ENCODER) $(HEADERS) | build
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(JPEG_CFLAGS) $< $(ENCODER) -o $@ $(LDFLAGS) $(JPEG_LIBS) $(CUPS_LIBS)
 
 ifeq ($(shell uname -s),Darwin)
-build/pdftodeli: src/pdftodeli.c $(ENCODER) $(HEADERS) | build
-	$(CC) $(CPPFLAGS) $(CFLAGS) $(JPEG_CFLAGS) $< $(ENCODER) -o $@ $(LDFLAGS) $(JPEG_LIBS) $(CUPS_LIBS) -framework ApplicationServices
+build/pdftodeli: src/pdftodeli.c src/resample.c src/resample.h $(ENCODER) $(HEADERS) | build
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(JPEG_CFLAGS) $< src/resample.c $(ENCODER) -o $@ $(LDFLAGS) $(JPEG_LIBS) $(CUPS_LIBS) -framework ApplicationServices
 endif
 
 build/test_page_plan: tools/test_page_plan.c src/page_plan.c src/page_plan.h | build
@@ -36,8 +36,12 @@ build/test_page_plan: tools/test_page_plan.c src/page_plan.c src/page_plan.h | b
 build/make_raster: tools/make_raster.c | build
 	$(CC) $(CPPFLAGS) $(CFLAGS) $< -o $@ $(LDFLAGS) $(CUPS_LIBS)
 
-test: all build/test_page_plan
+build/test_resample: tools/test_resample.c src/resample.c src/resample.h | build
+	$(CC) $(CPPFLAGS) $(CFLAGS) -Isrc tools/test_resample.c src/resample.c -lm -o $@
+
+test: all build/test_page_plan build/test_resample
 	./build/test_page_plan
+	./build/test_resample
 	python3 tools/test_page_options.py
 	python3 tools/test_pdf.py
 	python3 tools/test_roundtrip.py

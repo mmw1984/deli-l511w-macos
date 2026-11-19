@@ -122,14 +122,8 @@ class DeliPrintService : PrintService() {
                                     while (y < geometry.height) {
                                         checkCancelled()
                                         val rows = min(256, geometry.height - y)
-                                        val bitmap = Bitmap.createBitmap(geometry.width, rows, Bitmap.Config.ARGB_8888)
-                                        try {
-                                            bitmap.eraseColor(Color.WHITE)
-                                            if (page != null) page.render(bitmap, null, transform(page.width, page.height, geometry, y), PdfRenderer.Page.RENDER_MODE_FOR_PRINT)
-                                            val pixels = IntArray(geometry.width * rows)
-                                            bitmap.getPixels(pixels, 0, geometry.width, 0, 0, geometry.width, rows)
-                                            NativeEncoder.push(handle, pixels, geometry.width, rows)
-                                        } finally { bitmap.recycle() }
+                                        val pixels = renderBand(page, geometry, y, rows, option("rendering") == "HighQuality")
+                                        NativeEncoder.push(handle, pixels, geometry.width, rows)
                                         y += rows
                                     }
                                     NativeEncoder.endPage(handle)
@@ -187,4 +181,26 @@ internal fun transform(width: Int, height: Int, geometry: Geometry, y: Int): Mat
     val tx = if (same) -geometry.offset.toFloat() else (geometry.width - rw * scale) / 2
     val ty = (if (same) -geometry.offset.toFloat() else (geometry.height - rh * scale) / 2) - y
     return Matrix().apply { setValues(if (rotate) floatArrayOf(0f, -scale, tx + height * scale, scale, 0f, ty, 0f, 0f, 1f) else floatArrayOf(scale, 0f, tx, 0f, scale, ty, 0f, 0f, 1f)) }
+}
+
+internal fun renderBand(page: PdfRenderer.Page?, geometry: Geometry, y: Int, rows: Int, highQuality: Boolean): IntArray {
+    val result = IntArray(geometry.width * rows) { Color.WHITE }
+    if (page == null) return result
+    val factor = if (highQuality) 4 else 1
+    var offset = 0
+    while (offset < rows) {
+        val count = min(if (highQuality) 32 else 256, rows - offset)
+        val bitmap = Bitmap.createBitmap(geometry.width * factor, count * factor, Bitmap.Config.ARGB_8888)
+        try {
+            bitmap.eraseColor(Color.WHITE)
+            val matrix = transform(page.width, page.height, geometry, y + offset).apply { postScale(factor.toFloat(), factor.toFloat()) }
+            page.render(bitmap, null, matrix, PdfRenderer.Page.RENDER_MODE_FOR_PRINT)
+            val pixels = IntArray(bitmap.width * bitmap.height)
+            bitmap.getPixels(pixels, 0, bitmap.width, 0, 0, bitmap.width, bitmap.height)
+            val reduced = if (highQuality) NativeEncoder.downsample(pixels, geometry.width, bitmap.height, factor, 0, count) else pixels
+            reduced.copyInto(result, offset * geometry.width)
+        } finally { bitmap.recycle() }
+        offset += count
+    }
+    return result
 }

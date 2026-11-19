@@ -100,8 +100,14 @@ sudo lpadmin -p DeliL511W -E -v socket://192.0.2.10:9100 \
 lp -d DeliL511W -o PageSize=A4 -o ColorModel=RGB -o DeliQuality=Normal test.pdf
 ```
 
-Replace `192.0.2.10` with the printer's IP. The monitor DLL implements raw TCP
-9100; no hardware has verified listening services or handshake requirements.
+Replace `192.0.2.10` with the printer's stable IP. The language-monitor
+[transport audit](LANGUAGE-MONITOR.md) establishes unchanged print bytes and no
+TCP application handshake in the LM. Raw TCP/9100 is appropriate; no hardware
+has verified listening services or printer acceptance. Windows also performs
+UDP/9300 identity/address recovery, which this driver does not reproduce.
+Use a DHCP reservation or update the URI if the printer's address changes.
+If the printer holds TCP open after jobs, `socket://IP:9100/?waiteof=false`
+avoids CUPS waiting for EOF; the LM requires no final response.
 Only send test jobs to your own printer after reviewing this experimental status.
 No discovery, ink/status monitor, scan support, or custom backend is provided;
 the standard CUPS `socket` backend transports the stream. IPP/AirPrint is not

@@ -4,7 +4,12 @@ CFLAGS ?= -O2 -g
 CFLAGS += -std=c11 -Wall -Wextra -Wpedantic
 JPEG_CFLAGS ?= $(shell pkg-config --cflags libjpeg)
 JPEG_LIBS ?= $(shell pkg-config --libs libjpeg)
+ifeq ($(shell uname -s),Darwin)
+CPPFLAGS += -D_DARWIN_C_SOURCE
+CUPS_LIBS ?= -lcups
+else
 CUPS_LIBS ?= -lcupsimage -lcups
+endif
 
 all: build/rastertodeli build/make_raster
 

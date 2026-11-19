@@ -36,7 +36,7 @@ for ARCH in arm64 x86_64; do
     cmake --install "$WORK/jpeg-build-$ARCH" --config Release
     mkdir -p "$WORK/$ARCH"
     # Apple's libcups exports the raster API; no Homebrew CUPS/JPEG dylib dependency.
-    "$CLANG" -std=c11 -Wall -Wextra -Wpedantic -O2 -D_POSIX_C_SOURCE=200809L \
+    "$CLANG" -std=c11 -Wall -Wextra -Wpedantic -O2 -D_POSIX_C_SOURCE=200809L -D_DARWIN_C_SOURCE \
         -arch "$ARCH" -isysroot "$SDK" -mmacosx-version-min=11.0 \
         -I"$PREFIX/include" "$ROOT/src/rastertodeli.c" \
         "$PREFIX/lib/libjpeg.a" -lcups -o "$WORK/$ARCH/rastertodeli"
@@ -46,7 +46,7 @@ FILTER="$STAGE/Library/Printers/Deli/filter"
 PPDS="$STAGE/Library/Printers/PPDs/Contents/Resources"
 mkdir -p "$FILTER" "$PPDS"
 lipo -create "$WORK/arm64/rastertodeli" "$WORK/x86_64/rastertodeli" -output "$FILTER/rastertodeli"
-lipo -verify_arch arm64 x86_64 "$FILTER/rastertodeli"
+lipo "$FILTER/rastertodeli" -verify_arch arm64 x86_64
 chmod 755 "$FILTER/rastertodeli"
 codesign --force --sign - "$FILTER/rastertodeli"
 # CUPS supports an absolute filter path; avoid SIP-protected /usr/libexec/cups/filter.
@@ -59,7 +59,9 @@ install -m 644 "$WORK/libjpeg-turbo-$JPEG_VERSION/README.ijg" \
     "$STAGE/Library/Printers/Deli/libjpeg-turbo-README.ijg"
 install -m 644 "$ROOT/README.md" "$STAGE/Library/Printers/Deli/README.md"
 if command -v cupstestppd >/dev/null 2>&1; then
-    cupstestppd -R "$STAGE" "$PPDS/Deli-L511W.ppd"
+    # Staging is user-owned; pkgbuild assigns root ownership on installation.
+    test -x "$FILTER/rastertodeli"
+    cupstestppd -W filters -R "$STAGE" "$PPDS/Deli-L511W.ppd"
 fi
 otool -L "$FILTER/rastertodeli"
 pkgbuild --root "$STAGE" --identifier org.openprinting.experimental.deli-l511w \

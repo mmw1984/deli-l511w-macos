@@ -19,6 +19,21 @@ make compare-golden
 cupstestppd -I filters ppd/Deli-L511W.ppd
 ```
 
+For native macOS checks, install Xcode Command Line Tools and run:
+
+```sh
+brew install pkgconf jpeg-turbo cmake
+mkdir -p build
+python3 -m venv build/venv
+. build/venv/bin/activate
+python3 -m pip install Pillow
+make test
+make compare-golden
+```
+
+The native test build uses Homebrew JPEG; the universal installer below instead
+links its own static JPEG library and only system dynamic libraries.
+
 `make test` uses the small C raster generator to create
 600dpi RGB24/white-based grayscale8 CUPS rasters. Synthetic pages are 384×537
 pixels (deliberately smaller than the declared A4 sheet for fast tests), two

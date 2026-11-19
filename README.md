@@ -30,8 +30,8 @@ sudo installer -pkg ~/Downloads/Deli-L511W-universal.pkg -target /
 
 ## 黑白
 
-列印時勾選 **Black & White／黑白**，或將 Color Mode 設為 **Grayscale**。
-亦可選「黑白 Black & White」或「彩色 Color」預設組合（視乎 App 是否顯示）。
+macOS 不會顯示獨立的「Black & White／黑白」勾選框。
+列印時選「黑白 Black & White」預設組合，或將 **Color Mode／色彩模式** 設為 **Grayscale**；要印彩色就選「彩色 Color」預設組合（視乎 App 是否顯示）。
 
 ## 手動雙面
 

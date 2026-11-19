@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
     if (argc!=5 && argc!=6) { fprintf(stderr,"usage: make_raster rgb|gray height pages input.ppm [invalid-field]\n"); return 1; }
     unsigned int w=384, h=(unsigned int)strtoul(argv[2],NULL,10);
     int gray=!strcmp(argv[1],"gray"), pages=atoi(argv[3]);
-    if ((!gray && strcmp(argv[1],"rgb")) || !h || h>1000 || pages<1 || pages>4) return 1;
+    if ((!gray && strcmp(argv[1],"rgb")) || !h || h>1000 || pages<1 || pages>7) return 1;
     unsigned int channels=gray ? 1 : 3;
     FILE *image=fopen(argv[4],"wb"); if (!image) return 1;
     fprintf(image,"P%d\n%u %u\n255\n",gray ? 5 : 6,w,h);
@@ -40,7 +40,7 @@ int main(int argc, char **argv) {
                     hdr.cupsColorSpace=CUPS_CSPACE_W; hdr.cupsNumColors=1;
                     hdr.cupsBitsPerPixel=8; hdr.cupsBytesPerLine=w;
                 }
-            } else return 1;
+            } else if (strcmp(argv[5],"pagecode")) return 1;
         }
         if (!cupsRasterWriteHeader2(r,&hdr)) {
             fprintf(stderr,"raster header: %s\n",cupsRasterErrorString()); return 1;
@@ -57,6 +57,8 @@ int main(int argc, char **argv) {
                         (unsigned char)((x*255/(w-1)+y+c*53)%256);
                 }
                 if (y%64<2 || x%96<2) for (unsigned int c=0;c<channels;c++) row[x*channels+c]=0;
+                if (argc==6 && !strcmp(argv[5],"pagecode"))
+                    for (unsigned int c=0;c<channels;c++) row[x*channels+c]=(unsigned char)((page+1)*25);
             }
             if (!page && fwrite(row,1,w*channels,image)!=w*channels) return 1;
             if (cupsRasterWritePixels(r,row,hdr.cupsBytesPerLine)!=hdr.cupsBytesPerLine) {

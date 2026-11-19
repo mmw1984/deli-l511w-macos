@@ -12,17 +12,33 @@ CUPS_LIBS ?= -lcupsimage -lcups
 endif
 
 all: build/rastertodeli build/make_raster
+ifeq ($(shell uname -s),Darwin)
+all: build/pdftodeli
+endif
+
+ENCODER = src/deli.c src/page_plan.c
+HEADERS = src/deli.h src/page_plan.h
 
 build:
 	mkdir -p $@
 
-build/rastertodeli: src/rastertodeli.c | build
-	$(CC) $(CPPFLAGS) $(CFLAGS) $(JPEG_CFLAGS) $< -o $@ $(LDFLAGS) $(JPEG_LIBS) $(CUPS_LIBS)
+build/rastertodeli: src/rastertodeli.c $(ENCODER) $(HEADERS) | build
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(JPEG_CFLAGS) $< $(ENCODER) -o $@ $(LDFLAGS) $(JPEG_LIBS) $(CUPS_LIBS)
+
+ifeq ($(shell uname -s),Darwin)
+build/pdftodeli: src/pdftodeli.c $(ENCODER) $(HEADERS) | build
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(JPEG_CFLAGS) $< $(ENCODER) -o $@ $(LDFLAGS) $(JPEG_LIBS) $(CUPS_LIBS) -framework ApplicationServices
+endif
+
+build/test_page_plan: tools/test_page_plan.c src/page_plan.c src/page_plan.h | build
+	$(CC) $(CPPFLAGS) $(CFLAGS) -Isrc tools/test_page_plan.c src/page_plan.c -o $@ $(LDFLAGS)
 
 build/make_raster: tools/make_raster.c | build
 	$(CC) $(CPPFLAGS) $(CFLAGS) $< -o $@ $(LDFLAGS) $(CUPS_LIBS)
 
-test: all
+test: all build/test_page_plan
+	./build/test_page_plan
+	python3 tools/test_page_options.py
 	python3 tools/test_roundtrip.py
 
 build/raw_raster: tools/raw_raster.c | build

@@ -1,0 +1,78 @@
+*PPD-Adobe: "4.3"
+*FormatVersion: "4.3"
+*FileVersion: "0.1.0"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*PCFileName: "DELIL511.PPD"
+*Manufacturer: "Deli"
+*Product: "(Deli L511W)"
+*ModelName: "Deli L511W Experimental"
+*ShortNickName: "Deli L511W"
+*NickName: "Deli L511W Enhanced XL (experimental)"
+*PSVersion: "(3010.000) 0"
+*LanguageLevel: "3"
+*ColorDevice: True
+*DefaultColorSpace: RGB
+*FileSystem: False
+*Throughput: "4"
+*LandscapeOrientation: Plus90
+*TTRasterizer: Type42
+*cupsVersion: 2.0
+*cupsManualCopies: False
+*cupsFilter2: "application/vnd.cups-raster application/vnd.deli-xl 0 rastertodeli"
+*OpenUI *PageSize/Media Size: PickOne
+*OrderDependency: 10 AnySetup *PageSize
+*DefaultPageSize: A4
+*PageSize A4/A4: "<</PageSize[595.2 841.8]/ImagingBBox null>>setpagedevice"
+*PageSize Letter/US Letter: "<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageSize A5/A5: "<</PageSize[420 595.2]/ImagingBBox null>>setpagedevice"
+*PageSize Photo4x6/4x6 Photo (Deli R4 Borderless): "<</PageSize[289.92 430.8]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageSize
+*OpenUI *PageRegion/Media Region: PickOne
+*OrderDependency: 10 AnySetup *PageRegion
+*DefaultPageRegion: A4
+*PageRegion A4/A4: "<</PageSize[595.2 841.8]/ImagingBBox null>>setpagedevice"
+*PageRegion Letter/US Letter: "<</PageSize[612 792]/ImagingBBox null>>setpagedevice"
+*PageRegion A5/A5: "<</PageSize[420 595.2]/ImagingBBox null>>setpagedevice"
+*PageRegion Photo4x6/4x6 Photo (Deli R4 Borderless): "<</PageSize[289.92 430.8]/ImagingBBox null>>setpagedevice"
+*CloseUI: *PageRegion
+*DefaultImageableArea: A4
+*ImageableArea A4: "11.52 11.4 583.68 830.28"
+*ImageableArea Letter: "11.52 11.52 600.48 780.48"
+*ImageableArea A5: "11.52 11.52 408.48 583.68"
+*ImageableArea Photo4x6: "0 0 289.92 430.8"
+*DefaultPaperDimension: A4
+*PaperDimension A4: "595.2 841.8"
+*PaperDimension Letter: "612 792"
+*PaperDimension A5: "420 595.2"
+*PaperDimension Photo4x6: "289.92 430.8"
+*OpenUI *Resolution/Resolution: PickOne
+*OrderDependency: 20 AnySetup *Resolution
+*DefaultResolution: 600dpi
+*Resolution 600dpi/600 DPI: "<</HWResolution[600 600]>>setpagedevice"
+*CloseUI: *Resolution
+*OpenUI *ColorModel/Color Mode: PickOne
+*OrderDependency: 20 AnySetup *ColorModel
+*DefaultColorModel: RGB
+*ColorModel RGB/Color: "<</cupsColorSpace 1/cupsColorOrder 0/cupsBitsPerColor 8>>setpagedevice"
+*ColorModel Gray/Grayscale: "<</cupsColorSpace 0/cupsColorOrder 0/cupsBitsPerColor 8>>setpagedevice"
+*CloseUI: *ColorModel
+*OpenUI *MediaType/Media Type: PickOne
+*OrderDependency: 20 AnySetup *MediaType
+*DefaultMediaType: Auto
+*MediaType Auto/Automatic (from size): ""
+*MediaType Plain/Plain Paper: ""
+*MediaType Photo/Photo Paper: ""
+*MediaType Matte/Inkjet Matte Paper: ""
+*MediaType Envelope/Envelope: ""
+*MediaType Postcard/Postcard: ""
+*CloseUI: *MediaType
+*OpenUI *DeliQuality/Print Quality: PickOne
+*OrderDependency: 20 AnySetup *DeliQuality
+*DefaultDeliQuality: Normal
+*DeliQuality Draft/Draft: ""
+*DeliQuality Normal/Normal: ""
+*DeliQuality High/High: ""
+*CloseUI: *DeliQuality
+*DefaultFont: Courier
+*Font Courier: Standard "(001.007)" Standard ROM
